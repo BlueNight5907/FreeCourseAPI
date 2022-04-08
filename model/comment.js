@@ -16,10 +16,8 @@ export const CommentSchemal = new mongoose.Schema(
     },
     likes: [
       {
-        accountId: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "Account",
-        },
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Account",
       },
     ],
   },
