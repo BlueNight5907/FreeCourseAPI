@@ -31,6 +31,12 @@ const CourseSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Account",
     },
+    participants: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Account",
+      },
+    ],
     title: {
       type: String,
       required: true,
@@ -56,11 +62,6 @@ const CourseSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Level",
     },
-    fee: {
-      type: Number,
-      required: false,
-      default: 0,
-    },
     rates: [RateSchema],
     category: {
       type: mongoose.Schema.Types.ObjectId,
@@ -74,6 +75,12 @@ const CourseSchema = new mongoose.Schema(
     ],
 
     comments: [CommentSchemal],
+    modules: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Module",
+      },
+    ],
   },
   {
     timestamps: true,

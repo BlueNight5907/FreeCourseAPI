@@ -28,18 +28,24 @@ const LearningProcessSchema = new mongoose.Schema(
       ref: "Course",
       required: true,
     },
-    learned: {
-      stepId: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-      },
-      type: {
-        type: String,
-        required: true,
-        enum: [stepType.LESSON, stepType.TEST],
-      },
-      testState: [TestStateSchemal],
+    visited: {
+      type: Number,
+      required: false,
     },
+    learned: [
+      {
+        stepId: {
+          type: mongoose.Schema.Types.ObjectId,
+          required: true,
+        },
+        type: {
+          type: String,
+          required: true,
+          enum: [stepType.LESSON, stepType.TEST],
+        },
+        testState: [TestStateSchemal],
+      },
+    ],
   },
   {
     timestamps: true,

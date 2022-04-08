@@ -9,10 +9,8 @@ const PostSchemal = new mongoose.Schema(
     },
     likes: [
       {
-        accountId: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "Account",
-        },
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Account",
       },
     ],
     comments: [CommentSchemal],
