@@ -1,3 +1,4 @@
+import Account from "../../model/account.js";
 import accountModel from "../../model/account.js";
 import { paginate } from "../../utils/mongoose-utils.js";
 

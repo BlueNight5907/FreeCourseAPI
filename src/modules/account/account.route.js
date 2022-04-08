@@ -17,10 +17,16 @@ router.put(
   handleValidationResult,
   accountController.putEditAccount
 );
-router.get("/all", accountController.getAllAccount);
+router.get("/all", isAdmin, accountController.getAllAccount);
 router.get("/me", isAuth, accountController.getMyAccount);
-router.delete("/:id", accountController.deleteAccount);
-router.put("/:id", accountController.editAccountAdmin);
+router.delete("/:id", isAdmin, accountController.deleteAccount);
+router.put(
+  "/:id",
+  isAdmin,
+  editUserValidator,
+  handleValidationResult,
+  accountController.editAccountAdmin
+);
 router.get("/:id", accountController.getInfoUser);
 
 const accountRoutes = router;
