@@ -70,10 +70,12 @@ const AccountSchema = new mongoose.Schema(
       type: String,
       require: true,
       unique: true,
+      match: /* /.+\@.+\..+/ */ [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Invalid email address'], 
     },
     password: {
       type: String,
       required: true,
+      minlength: 6,
     },
     userInformation: UserInformationSchema,
     type: {
@@ -87,6 +89,12 @@ const AccountSchema = new mongoose.Schema(
         ref: "Privilege",
       },
     ],
+
+    accountType: AccountTypeSchema,
+    type: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "AccountType",
+    },
 
     active: {
       type: Boolean,

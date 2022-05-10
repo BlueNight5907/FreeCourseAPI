@@ -6,12 +6,15 @@ class Database {
   }
   connect() {
     mongoose
-      .connect(this.url)
+      .connect(this.url, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      })
       .then(() => {
         console.log("Database connection successfull");
       })
       .catch((error) => {
-        console.log(err);
+        console.log(error);
         console.error("Database connection error");
       });
   }
