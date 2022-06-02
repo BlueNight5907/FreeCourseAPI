@@ -22,6 +22,7 @@ database.connect();
 import accountRoute from "./routes/account.route.js";
 import categoryRoute from "./routes/category.route.js";
 import tagRoute from  "./routes/tag.route.js";
+import courseRoute from "./routes/course.route.js";
 import indexRoute from "./routes/index.route.js";
 import * as authMiddeware from './middlewares/authMiddeware.js';
 //
@@ -29,6 +30,7 @@ app.use("/", indexRoute);
 app.use("/account", authMiddeware.isAuth, accountRoute)
 app.use("/category", categoryRoute);
 app.use("/tag", tagRoute);
+app.use("/course",authMiddeware.isAuth , courseRoute);
 
 app.listen(port, () =>
   console.log("Server is listening on http://localhost:" + port)
