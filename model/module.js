@@ -23,6 +23,10 @@ const StepSchemal = new mongoose.Schema(
 
 const ModuleSchema = new mongoose.Schema(
   {
+    courseId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Course",
+    },
     title: {
       type: String,
       required: true,

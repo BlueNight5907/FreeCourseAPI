@@ -4,7 +4,7 @@ import cors from "cors";
 import { port } from "./utils/config.js";
 import Database from "./utils/database.js";
 import { databaseURL } from "./utils/config.js";
-import Test from "./test-model.js";
+import moduleRoute from "./route/moduleRoute.js";
 //Connect database
 const database = new Database(databaseURL);
 database.connect();
@@ -12,20 +12,17 @@ database.connect();
 //Create app instance
 const app = express();
 
-app.get("/", async (req, res) => {
-  try {
-    const newTest = new Test({
-      name: {},
-      points: [1, 2],
-    });
+const testMdw = (req, res, next) => {
+  req.name = "abcd";
+  next();
+};
 
-    await newTest.save();
-    res.send(newTest);
-  } catch (error) {
-    console.log(error);
-    res.send(error.message);
-  }
+app.get("/", testMdw, async (req, res) => {
+  console.log(req.name);
+  res.send(req.name);
 });
+
+app.use("/module", moduleRoute);
 
 app.listen(port, () =>
   console.log("Server is listening on http://localhost:" + port)
