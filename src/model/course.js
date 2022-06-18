@@ -62,11 +62,11 @@ const CourseSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Level",
     },
-    rates: [RateSchema],
     category: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Category",
     },
+    rates: [RateSchema],
     tags: [
       {
         type: mongoose.Schema.Types.ObjectId,

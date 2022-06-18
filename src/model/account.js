@@ -64,16 +64,21 @@ const PrivilegeSchema = new mongoose.Schema(
   }
 );
 
-const AccountSchema = new mongoose.Schema(
+export const AccountSchema = new mongoose.Schema(
   {
     email: {
       type: String,
       require: true,
       unique: true,
+      match: /* /.+\@.+\..+/ */ [
+        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+        "Invalid email address",
+      ],
     },
     password: {
       type: String,
       required: true,
+      minlength: 6,
     },
     userInformation: UserInformationSchema,
     type: {
@@ -87,7 +92,6 @@ const AccountSchema = new mongoose.Schema(
         ref: "Privilege",
       },
     ],
-
     active: {
       type: Boolean,
       required: true,
@@ -95,7 +99,6 @@ const AccountSchema = new mongoose.Schema(
     },
     refreshToken: {
       type: String,
-      required: true,
     },
     loginFailedCount: {
       type: Number,
