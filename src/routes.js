@@ -8,6 +8,7 @@ import { authRoutes } from "./modules/auth";
 import { categoryRoutes } from "./modules/category";
 import { isAuth } from "./middlewares/auth.middleware";
 import config from "./config";
+import { moduleRoutes } from "./modules/module";
 
 export default function routes(app) {
   // all app routes
@@ -16,6 +17,7 @@ export default function routes(app) {
   app.use("/category", isAuth, categoryRoutes);
   app.use("/tag", isAuth, tagRoutes);
   app.use("/course", isAuth, courseRoutes);
+  app.use("/module", isAuth, moduleRoutes);
 
   // catch 404 and forward to error handler
   app.use((req, res, next) => {
