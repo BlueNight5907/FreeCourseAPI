@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { stepType } from "../constants/model-constant";
 
 const TestStateSchemal = new mongoose.Schema(
   {

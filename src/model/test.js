@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { CommentSchemal } from "./comment.js";
 
-const QuestionSchemal = new mongoose.model({
+const QuestionSchemal = new mongoose.Schema({
   question: {
     type: String,
     required: true,

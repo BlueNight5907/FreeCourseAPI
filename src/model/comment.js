@@ -4,7 +4,7 @@ export const CommentSchemal = new mongoose.Schema(
   {
     content: {
       type: String,
-      required: false,
+      required: true,
     },
     image: {
       type: String,
@@ -13,6 +13,7 @@ export const CommentSchemal = new mongoose.Schema(
     accountId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Account",
+      required: true,
     },
     likes: [
       {

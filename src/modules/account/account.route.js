@@ -1,4 +1,5 @@
 import express from "express";
+import { isAdmin, isAuth } from "../../middlewares/auth.middleware";
 //import { route } from "express";
 import * as accountController from "./account.controller";
 

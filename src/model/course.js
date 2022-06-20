@@ -30,6 +30,7 @@ const CourseSchema = new mongoose.Schema(
     creator: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Account",
+      required: true,
     },
     participants: [
       {
@@ -73,7 +74,7 @@ const CourseSchema = new mongoose.Schema(
         ref: "Tag",
       },
     ],
-
+    gains: [{ type: String }],
     comments: [CommentSchemal],
     modules: [
       {

@@ -1,12 +1,13 @@
 import express from "express";
 import handleValidationResult from "../../common/handleValidationResult";
 import { existCourse } from "../../middlewares/course.middleware";
-import { existModule } from "../../middlewares/module.middleware";
+import { existModule, existStep } from "../../middlewares/module.middleware";
 import * as moduleController from "./module.controller";
 import {
   editModuleValidate,
   moduleValidate,
 } from "./validators/module.validator";
+import { lessonValidate } from "./validators/step.validator";
 const router = express.Router();
 /*
  * ---------------------------
@@ -53,19 +54,53 @@ router.delete(
 router.get(
   "/:moduleId/step/:stepId",
   existModule,
+  existStep,
   moduleController.getStepDetail
 );
 
-// POST create new step
-router.post("/:moduleId/step", existModule, moduleController.createNewStep);
+// POST create new step - lesson
+router.post(
+  "/:moduleId/step/lesson",
+  existModule,
+  lessonValidate,
+  handleValidationResult,
+  moduleController.createLesson
+);
 
-// PUT edit a step
-router.put("/:moduleId/step/:stepId", existModule, moduleController.editStep);
+// POST create new step - test
+router.post(
+  "/:moduleId/step/test",
+  existModule,
+  lessonValidate,
+  handleValidationResult,
+  moduleController.createLesson
+);
+
+// PUT edit a step - lesson
+router.put(
+  "/:moduleId/step/:stepId/lesson",
+  existModule,
+  existStep,
+  lessonValidate,
+  handleValidationResult,
+  moduleController.editStep
+);
+
+// PUT edit a step - test
+router.put(
+  "/:moduleId/step/:stepId/test",
+  existModule,
+  existStep,
+  lessonValidate,
+  handleValidationResult,
+  moduleController.editStep
+);
 
 // DELETE remove a step
 router.delete(
   "/:moduleId/step/:stepId",
   existModule,
+  existStep,
   moduleController.deleteStep
 );
 
@@ -73,6 +108,7 @@ router.delete(
 router.get(
   "/:moduleId/step/:stepId/get-all-answer",
   existModule,
+  existStep,
   moduleController.getTestAnswer
 );
 
@@ -80,6 +116,7 @@ router.get(
 router.post(
   "/:moduleId/step/:stepId/submit-test",
   existModule,
+  existStep,
   moduleController.submitTest
 );
 
@@ -87,6 +124,7 @@ router.post(
 router.post(
   "/:moduleId/step/:stepId/complete",
   existModule,
+  existStep,
   moduleController.completeLesson
 );
 
@@ -94,6 +132,7 @@ router.post(
 router.get(
   "/:moduleId/step/:stepId/comment",
   existModule,
+  existStep,
   moduleController.getAllComment
 );
 
@@ -101,6 +140,7 @@ router.get(
 router.post(
   "/:moduleId/step/:stepId/comment",
   existModule,
+  existStep,
   moduleController.addComment
 );
 
@@ -108,6 +148,7 @@ router.post(
 router.delete(
   "/:moduleId/step/:stepId/comment",
   existModule,
+  existStep,
   moduleController.deleteComment
 );
 
