@@ -1,14 +1,13 @@
 import courseModel from "../../model/course.js";
 import accountModel from "../../model/account.js";
-import { jwtVariable } from "../../constants/jwt.js";
-import { Level } from "../../model/course.js";
+import Course, { Level } from "../../model/course.js";
+import LearningProcess from "../../model/learning-process";
+import { deleteSecureField } from "../../utils/mongoose-ultis.js";
+import Account from "../../model/account.js";
+import { getDataFromAllSettled } from "../../utils/array-utils.js";
+import { getLearningProcess } from "./course.method.js";
 
-// export const getAllTag = async(req, res) => {
-// 	const tag = await tagModel.find({});
-// 	res.send(tag);
-// }
-
-export const createCourse = async (req, res) => {
+export const createCourse = async (req, res, next) => {
   const title = req.body.title;
   const content = req.body.content;
   const shortDesc = req.body.shortDesc;
@@ -16,53 +15,48 @@ export const createCourse = async (req, res) => {
   const password = req.body.password;
   const level = req.body.level;
   const category = req.body.category;
-  const tag = req.body.tag;
-  const accessToken = req.headers.authorization;
-
-  const accessTokenSecret =
-    process.env.ACCESS_TOKEN_SECRET || jwtVariable.accessTokenSecret;
+  const tags = req.body.tags;
+  const gains = req.body.gains;
 
   const _IdAccount = req.user._id;
 
   const course = new courseModel({
-    title: title,
-    content: content,
-    shortDesc: shortDesc,
-    background: background,
-    password: password,
+    title,
+    content,
+    shortDesc,
+    background,
+    password,
+    creator: _IdAccount,
+    tags,
+    category,
+    level,
+    gains,
   });
-  course.creator = _IdAccount;
-  course.level = level;
-  course.category = category;
-  course.tags = tag;
   course.save((err) => {
     if (err) {
-      res.send(err);
+      next(err);
     } else {
-      res.send(course);
+      res.json(course);
     }
   });
 };
 
 export const getInfoCourse = async (req, res) => {
-  const _id = req.params.id;
-  console.log(req.params.id);
-  const course = await courseModel.findById(_id);
-  const user = await accountModel.findById(course.creator);
-  const level = await Level.findById(course.level);
+  const { course } = req;
+  await course.populate("level");
+  await course.populate("category");
   const infoCourse = new Object({
     title: course.title,
     content: course.content,
     shortDesc: course.shortDesc,
     background: course.background,
-    level: level.name,
-    creator: user.userInformation.fullName,
+    ...course._doc,
   });
   res.send(infoCourse);
 };
 
 export const getInfoAllCourse = async (req, res) => {
-  const course = await courseModel.find();
+  const course = await courseModel.find().populate(["level", "category"]);
   res.send(course);
 };
 
@@ -74,102 +68,112 @@ export const editCourse = async (req, res) => {
   const password = req.body.password;
   const level = req.body.level;
   const category = req.body.category;
-  const tag = req.body.tag;
-  const accessToken = req.headers.authorization;
-  const id = req.params.id;
-  const accessTokenSecret =
-    process.env.ACCESS_TOKEN_SECRET || jwtVariable.accessTokenSecret;
+  const tags = req.body.tags;
+  const gains = req.body.gains;
 
-  const _IdAccount = req.user._id;
+  const { course } = req;
 
-  const course = await courseModel.findById(id);
-  console.log(course.creator);
-  console.log(_IdAccount.equals(course.creator));
-  if (_IdAccount.equals(course.creator) /* || type = "admin" */) {
-    course.title = title;
-    course.content = content;
-    course.shortDesc = shortDesc;
-    course.background = background;
-    course.password = password;
-    course.level = level;
-    course.category = category;
-    course.tags = tag;
+  course.title = title;
+  course.content = content;
+  course.shortDesc = shortDesc;
+  course.background = background;
+  course.password = password;
+  course.level = level;
+  course.category = category;
+  course.tags = tags;
+  course.gains = gains;
 
-    course.save((err) => {
-      if (err) {
-        res.send(err);
-      } else {
-        res.send("Update Course Successfully");
-      }
-    });
-  } else {
-    res.send("Update Course Field");
-  }
+  course.save((err) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send("Update Course Successfully");
+    }
+  });
 };
 
 export const deleteCourse = async (req, res) => {
-  const _id = req.params.id;
+  const _id = req.params.courseId;
   await courseModel.findByIdAndRemove(_id);
-  res.send("Delete Account Successfully");
+  await LearningProcess.deleteMany({ courseId: course._id });
+  res.send("Xóa khóa học thành công");
 };
 
-export const joinCourse = async (req, res) => {
-  const _id = req.params.id;
-  const accessToken = req.headers.authorization;
-  const accessTokenSecret =
-    process.env.ACCESS_TOKEN_SECRET || jwtVariable.accessTokenSecret;
-
-  const _IdAccount = req.user._id;
-  const course = await courseModel.findById(_id);
-  console.log(course.participants);
-  if (course.participants.indexOf(_IdAccount) !== -1) {
-    res.send("User has join already");
-  } else {
-    course.participants.push(_IdAccount);
-    course.save((err) => {
-      if (err) {
-        res.send(err);
-      } else {
-        res.send("Join Course Successfully");
-      }
-    });
+export const joinCourse = async (req, res, next) => {
+  const { course, user } = req;
+  const _IdAccount = user._id;
+  course.participants.push(_IdAccount);
+  const learningProcess = new LearningProcess({
+    accountId: user._id,
+    courseId: course._id,
+    visited: new Date().getTime(),
+  });
+  try {
+    await learningProcess.save();
+    await course.save();
+    res.send("Tham gia khóa học thành công");
+  } catch (error) {
+    next(error);
   }
 };
 
-export const unJoinCourse = async (req, res) => {
-  const _id = req.params.id;
-  const accessToken = req.headers.authorization;
-  const accessTokenSecret =
-    process.env.ACCESS_TOKEN_SECRET || jwtVariable.accessTokenSecret;
-
-  const _IdAccount = req.user._id;
-  const course = await courseModel.findById(_id);
-  if (course.participants.indexOf(_IdAccount) !== -1) {
-    const indexUser = course.participants.indexOf(_IdAccount);
-    course.participants.splice(indexUser, 1);
-    course.save((err) => {
-      if (err) {
-        res.send(err);
-      } else {
-        res.send("unJoin Course Successfully");
-      }
+export const unJoinCourse = async (req, res, next) => {
+  const { course, user } = req;
+  const _IdAccount = user._id;
+  const indexUser = course.participants.indexOf(_IdAccount);
+  course.participants.splice(indexUser, 1);
+  try {
+    await LearningProcess.findOneAndDelete({
+      accountId: user._id,
+      courseId: course._id,
     });
-  } else {
-    res.send("You haven't joined the course yet");
+    await course.save();
+    res.send("Huỷ tham gia khóa học thành công");
+  } catch (error) {
+    next(error);
   }
 };
 
 export const studentInCourse = async (req, res) => {
-  const _id = req.params.id;
-  const course = await courseModel.findById(_id);
+  const { course } = req;
   const studentList = course.participants;
   const stuList = [];
   for (let element of studentList) {
     const user = await accountModel.findById(element);
     const stu = new Object({
-      name: user.userInformation.fullName,
+      _id: user._id,
+      userInformation: user.userInformation,
     });
     stuList.push(stu);
   }
   res.send(stuList);
+};
+
+export const myCourses = async (req, res) => {
+  const { user } = req;
+  let allCourse = await LearningProcess.find({ userId: user._id });
+  allCourse = await Promise.allSettled(allCourse.map(getLearningProcess));
+  res.json(getDataFromAllSettled(allCourse));
+};
+
+export const learningProcess = async (req, res) => {
+  const { user } = req;
+  const { courseId } = req.params;
+  let process = await LearningProcess.findOne({
+    userId: user._id,
+    courseId: courseId,
+  });
+  process = await getLearningProcess(process);
+  res.json(process);
+};
+
+export const myCreatedCourses = async (req, res) => {
+  const { user } = req;
+  const allCourse = await Course.find({ creator: user._id }).populate([
+    "modules",
+    "tags",
+    "category",
+    "level",
+  ]);
+  res.send(allCourse);
 };

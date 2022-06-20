@@ -11,6 +11,11 @@ const StepSchemal = new mongoose.Schema(
       required: true,
       enum: [stepType.LESSON, stepType.TEST],
     },
+    time: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
     content: {
       type: mongoose.Schema.Types.ObjectId,
       //maybe lesson Id or test Id, depend on step type

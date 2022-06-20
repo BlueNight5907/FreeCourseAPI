@@ -28,7 +28,7 @@ export default function routes(app) {
   // error handler, send stacktrace only during development
   app.use((err, req, res, next) => {
     console.log(err);
-    res.status(err.status).json({
+    res.status(err.status || httpStatus.INTERNAL_SERVER_ERROR).json({
       message: err.isPublic ? err.message : httpStatus[err.status],
       stack: config.env === "development" ? err.stack : {},
     });

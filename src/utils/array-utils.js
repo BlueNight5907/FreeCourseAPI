@@ -5,3 +5,12 @@ export const removeDuplicates = (arr) => {
   }
   return [...new Set(arr)];
 };
+
+export const getDataFromAllSettled = (arr) => {
+  return arr.reduce((result, item) => {
+    if (item.status === "fulfilled") {
+      result.push(item.value);
+    }
+    return result;
+  }, []);
+};

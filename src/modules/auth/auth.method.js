@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 import util from "util";
+import { accountTypes } from "../../constants/account-constant";
 const promisify = util.promisify;
 
 const sign = promisify(jwt.sign).bind(jwt);
@@ -41,4 +42,12 @@ export const decodeToken = async (token, secretKey) => {
     console.log(`Error in decode access token: ${error}`);
     return null;
   }
+};
+
+export const checkAdmin = async (user) => {
+  await user.populate("type");
+  if (user.type?.name === accountTypes.admin) {
+    return true;
+  }
+  return false;
 };
