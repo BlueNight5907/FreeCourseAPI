@@ -73,3 +73,24 @@ export const notCreator = async (req, res, next) => {
   }
   return next();
 };
+
+export const existComment = async (req, res, next) => {
+  const errorResponse = new APIError(
+    "Không tìm thấy bình luận này!!!",
+    httpStatus.BAD_REQUEST,
+    true
+  );
+  const { commentId } = req.params;
+  const { course } = req;
+  try {
+    const comments = course.comments;
+    const isExist =
+      comments.filter((comment) => comment._id.equals(commentId)).length > 0;
+    if (!isExist) {
+      throw errorResponse;
+    }
+    return next();
+  } catch (error) {
+    return next(errorResponse);
+  }
+};
