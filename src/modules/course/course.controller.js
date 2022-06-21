@@ -5,7 +5,7 @@ import LearningProcess from "../../model/learning-process";
 import { deleteSecureField } from "../../utils/mongoose-ultis.js";
 import Account from "../../model/account.js";
 import { getDataFromAllSettled } from "../../utils/array-utils.js";
-import { getLearningProcess } from "./course.method.js";
+import { allComment, getLearningProcess } from "./course.method.js";
 
 export const createCourse = async (req, res, next) => {
   const title = req.body.title;
@@ -176,4 +176,38 @@ export const myCreatedCourses = async (req, res) => {
     "level",
   ]);
   res.send(allCourse);
+};
+
+export const deleteComment = async (req, res, next) => {
+  const { course } = req;
+  const { commentId } = req.params;
+  const commentIndex = course.comments.findIndex((comment) =>
+    comment._id.equals(commentId)
+  );
+  course.comments.splice(commentIndex, 1);
+  const comments = await allComment(course);
+  return res.json({ comments });
+};
+
+export const addComment = async (req, res, next) => {
+  const { user, course } = req;
+  const { content, url } = req.body;
+  course.comments.push({
+    content,
+    url,
+    accountId: user._id,
+  });
+  await course.save((err) => {
+    if (err) {
+      next(err);
+    } else {
+      res.json({ message: "Thêm bình luận thành công" });
+    }
+  });
+};
+
+export const getAllComment = async (req, res, next) => {
+  const { course } = req;
+  const comments = await allComment(course);
+  return res.json({ comments });
 };

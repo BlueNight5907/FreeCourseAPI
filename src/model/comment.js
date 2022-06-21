@@ -6,7 +6,7 @@ export const CommentSchemal = new mongoose.Schema(
       type: String,
       required: true,
     },
-    image: {
+    url: {
       type: String,
       required: false,
     },

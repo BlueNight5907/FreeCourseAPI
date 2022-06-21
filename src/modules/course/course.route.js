@@ -1,7 +1,9 @@
 import express from "express";
+import { commentValidator } from "../../common/comment.validator.js";
 import handleValidationResult from "../../common/handleValidationResult.js";
 import {
   canModifiedCourse,
+  existComment,
   existCourse,
   isJoined,
   isNotJoined,
@@ -13,6 +15,7 @@ import { courseValidator } from "./validator/course.validator.js";
 const router = express.Router();
 
 router.get("/me", controller.myCourses);
+
 router.get("/created-by-me", controller.myCreatedCourses);
 router.get(
   "/:courseId/learning-process",
@@ -20,12 +23,38 @@ router.get(
   isNotJoined,
   controller.learningProcess
 );
+
+router.get("/:courseId/all-comment", existCourse, controller.getAllComment);
+
+router.post(
+  "/:courseId/comment",
+  existCourse,
+  commentValidator,
+  handleValidationResult,
+  controller.addComment
+);
+
+router.delete(
+  "/:courseId/comment/:commentId",
+  existCourse,
+  existComment,
+  controller.deleteComment
+);
+
 router.post(
   "/create",
   courseValidator,
   handleValidationResult,
   controller.createCourse
 );
+
+router.post(
+  "/create",
+  courseValidator,
+  handleValidationResult,
+  controller.createCourse
+);
+
 router.get("/detail/:courseId", existCourse, controller.getInfoCourse);
 router.get("/all", controller.getInfoAllCourse);
 router.put(
