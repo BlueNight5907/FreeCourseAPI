@@ -3,6 +3,10 @@ import { CommentSchemal } from "./comment.js";
 
 const PostSchemal = new mongoose.Schema(
   {
+    creator: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Account",
+    },
     content: {
       type: String,
       required: false,
@@ -17,3 +21,7 @@ const PostSchemal = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+const Post = mongoose.model("Post", PostSchemal);
+
+export default Post;

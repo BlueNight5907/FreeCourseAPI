@@ -5,8 +5,8 @@ import {
   canModifiedCourse,
   existComment,
   existCourse,
+  notJoined,
   isJoined,
-  isNotJoined,
   notCreator,
 } from "../../middlewares/course.middleware.js";
 import * as controller from "./course.controller.js";
@@ -20,7 +20,7 @@ router.get("/created-by-me", controller.myCreatedCourses);
 router.get(
   "/:courseId/learning-process",
   existCourse,
-  isNotJoined,
+  isJoined,
   controller.learningProcess
 );
 
@@ -75,13 +75,13 @@ router.post(
   "/join/:courseId",
   existCourse,
   notCreator,
-  isJoined,
+  notJoined,
   controller.joinCourse
 );
 router.post(
   "/unjoin/:courseId",
   existCourse,
-  isNotJoined,
+  isJoined,
   controller.unJoinCourse
 );
 router.get("/people/:courseId", existCourse, controller.studentInCourse);

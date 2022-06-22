@@ -22,7 +22,7 @@ export const existCourse = async (req, res, next) => {
   }
 };
 
-export const isJoined = async (req, res, next) => {
+export const notJoined = async (req, res, next) => {
   const errorResponse = new APIError(
     "Đã tham gia vào khóa học này!!",
     httpStatus.CONFLICT,
@@ -35,7 +35,7 @@ export const isJoined = async (req, res, next) => {
   return next();
 };
 
-export const isNotJoined = async (req, res, next) => {
+export const isJoined = async (req, res, next) => {
   const errorResponse = new APIError(
     "Chưa tham gia vào khóa học này!!",
     httpStatus.CONFLICT,

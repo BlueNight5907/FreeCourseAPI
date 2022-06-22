@@ -5,10 +5,10 @@ import { isAdmin } from "../../middlewares/auth.middleware";
 const router = express.Router();
 
 router.get("/all", controller.getAllTag);
-router.post("/create", controller.postTag);
+router.post("/create", isAdmin, controller.postTag);
 router.get("/:id", controller.getTagbyId);
-router.put("/update/:id", controller.editTag);
-router.delete("/delete/:id", controller.deleteTag);
+router.delete("/delete/:id", isAdmin, controller.deleteTag);
+router.put("/update/:id", isAdmin, controller.editTag);
 
 const tagRoutes = router;
 export default tagRoutes;
