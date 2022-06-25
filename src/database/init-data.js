@@ -1,9 +1,11 @@
 import Account, { AccountType } from "../model/account";
 import bcrypt from "bcrypt";
+import path from "path";
 import config from "../config";
 import { Level } from "../model/course";
 import Category from "../model/category";
 import Tag from "../model/tag";
+import { readFile } from "../utils/fileSystem";
 
 const createAdminAccount = async () => {
   const adminType = (await AccountType.findOne({ name: "admin" }))._doc;
@@ -156,6 +158,12 @@ const addTags = async () => {
       name: "ReactJS",
     },
     {
+      name: "ExpressJS",
+    },
+    {
+      name: "NestJS",
+    },
+    {
       name: "VueJS",
     },
     {
@@ -232,12 +240,17 @@ const addTags = async () => {
     })
   );
 };
-
+const readCourseData = async () => {
+  const coursesURL = path.resolve("./src/data/courses.json");
+  const fileData = await readFile(coursesURL);
+  const courses = JSON.parse(fileData).data;
+};
 const createData = async () => {
   await addAccountType();
   await createAdminAccount();
   await addCourseLevel();
   await addCourseCategories();
   await addTags();
+  readCourseData();
 };
 export default createData;
