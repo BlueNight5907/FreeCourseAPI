@@ -1,7 +1,7 @@
 import accountModel from "../../model/account.js";
+import { paginate } from "../../utils/mongoose-utils.js";
 
 export const putEditAccount = async (req, res) => {
-  //const accessToken = req.headers["authorization"];
   const fullName = req.body.fullName;
   const avatar = req.body.avatar;
   const birthDay = req.body.birthDay;
@@ -31,12 +31,15 @@ export const putEditAccount = async (req, res) => {
 };
 
 export const getAllAccount = async (req, res) => {
-  try {
-    const acc = await accountModel.find({});
-    res.status(200).send(acc);
-  } catch (error) {
-    res.send(error);
-  }
+  const { page = 0, page_size = 10, sort, order = "desc" } = req.query;
+  const accounts = await paginate(
+    Account,
+    page,
+    page_size,
+    sort ? { [sort]: order } : { date: order },
+    {}
+  );
+  res.send(accounts);
 };
 
 export const deleteAccount = async (req, res) => {

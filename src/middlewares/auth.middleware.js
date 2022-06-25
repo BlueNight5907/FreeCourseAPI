@@ -4,6 +4,7 @@ import AccountModel from "../model/account.js";
 import * as authMethod from "../modules/auth/auth.method";
 import { StatusCodes as httpStatus } from "http-status-codes";
 import { APIError } from "../common/APIError.js";
+import Account from "../model/account.js";
 
 export const isAuth = async (req, res, next) => {
   const accessTokenFromHeader = req.headers["authorization"];
@@ -44,4 +45,19 @@ export const isAdmin = async (req, res, next) => {
     true
   );
   return next(errorResponse);
+};
+
+export const existAccount = async (req, res, next) => {
+  const { userId } = req.params;
+  const errorResponse = new APIError(
+    "Người dùng này không tồn tại!!!",
+    httpStatus.FORBIDDEN,
+    true
+  );
+  const account = await authMethod.existUser(userId);
+  if (account) {
+    req.account = account;
+    return next();
+  }
+  next(errorResponse);
 };
