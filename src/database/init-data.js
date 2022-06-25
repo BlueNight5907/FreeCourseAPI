@@ -87,51 +87,51 @@ const addCourseCategories = async () => {
   const categories = [
     {
       name: "Front-end",
-      urlPath: "/frontend",
+      urlPath: "frontend",
     },
     {
       name: "Back-end",
-      urlPath: "/backend",
+      urlPath: "backend",
     },
     {
       name: "Lập trình cơ bản",
-      urlPath: "/common-course",
+      urlPath: "common-course",
     },
     {
       name: "UX/UI",
-      urlPath: "/ux-ui",
+      urlPath: "ux-ui",
     },
     {
       name: "Cơ sở dữ liệu",
-      urlPath: "/database",
+      urlPath: "database",
     },
     {
       name: "Cấu trúc dữ liệu",
-      urlPath: "/data-structure",
+      urlPath: "data-structure",
     },
     {
       name: "Trí tuệ nhân tạo",
-      urlPath: "/ai",
+      urlPath: "ai",
     },
     {
       name: "Khoa học dữ liệu",
-      urlPath: "/data-science",
+      urlPath: "data-science",
     },
     {
       name: "Quản trị hệ thống",
-      urlPath: "/system-managenent",
+      urlPath: "system-managenent",
     },
     {
       name: "Bảo mật",
-      urlPath: "/security",
+      urlPath: "security",
     },
     {
       name: "Game",
-      urlPath: "/game",
+      urlPath: "game",
     },
     {
       name: "Mobile",
-      urlPath: "/mobile",
+      urlPath: "mobile",
     },
   ];
 

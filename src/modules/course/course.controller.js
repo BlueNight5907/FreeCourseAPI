@@ -6,6 +6,7 @@ import { deleteSecureField } from "../../utils/mongoose-ultis.js";
 import Account from "../../model/account.js";
 import { getDataFromAllSettled } from "../../utils/array-utils.js";
 import { allComment, getLearningProcess } from "./course.method.js";
+import { paginate } from "../../utils/mongoose-utils.js";
 
 export const createCourse = async (req, res, next) => {
   const title = req.body.title;
@@ -41,6 +42,33 @@ export const createCourse = async (req, res, next) => {
   });
 };
 
+export const getCourses = async (req, res) => {
+  const {
+    page = 0,
+    page_size = 10,
+    tags,
+    rates,
+    sort,
+    order = "desc",
+  } = req.query;
+  const { category } = req;
+  const courses = await paginate(
+    Course,
+    page,
+    page_size,
+    sort ? { [sort]: order } : { date: order },
+    {
+      category,
+      ...(tags && {
+        tags: {
+          $in: tags.split(","),
+        },
+      }),
+    },
+    ["level", "category"]
+  );
+  res.json(courses);
+};
 export const getInfoCourse = async (req, res) => {
   const { course } = req;
   await course.populate("level");
@@ -56,8 +84,16 @@ export const getInfoCourse = async (req, res) => {
 };
 
 export const getInfoAllCourse = async (req, res) => {
-  const course = await courseModel.find().populate(["level", "category"]);
-  res.send(course);
+  const { page = 0, page_size = 10, sort, order = "desc" } = req.query;
+  const courses = await paginate(
+    Course,
+    page,
+    page_size,
+    sort ? { [sort]: order } : { date: order },
+    {},
+    ["level", "category"]
+  );
+  res.json(courses);
 };
 
 export const editCourse = async (req, res) => {
@@ -169,13 +205,16 @@ export const learningProcess = async (req, res) => {
 
 export const myCreatedCourses = async (req, res) => {
   const { user } = req;
-  const allCourse = await Course.find({ creator: user._id }).populate([
-    "modules",
-    "tags",
-    "category",
-    "level",
-  ]);
-  res.send(allCourse);
+  const { page = 0, page_size = 10, sort, order = "desc" } = req.query;
+  const courses = await paginate(
+    Course,
+    page,
+    page_size,
+    sort ? { [sort]: order } : { date: order },
+    { creator: user._id },
+    ["modules", "tags", "category", "level"]
+  );
+  res.send(courses);
 };
 
 export const deleteComment = async (req, res, next) => {

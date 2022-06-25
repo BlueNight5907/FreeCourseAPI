@@ -10,6 +10,7 @@ import { isAuth } from "./middlewares/auth.middleware";
 import config from "./config";
 import { moduleRoutes } from "./modules/module";
 import { communityRoutes } from "./modules/community";
+import { groupRoutes } from "./modules/group";
 
 export default function routes(app) {
   // all app routes
@@ -20,6 +21,7 @@ export default function routes(app) {
   app.use("/course", isAuth, courseRoutes);
   app.use("/module", isAuth, moduleRoutes);
   app.use("/community", isAuth, communityRoutes);
+  app.use("/group", isAuth, groupRoutes);
 
   // catch 404 and forward to error handler
   app.use((req, res, next) => {

@@ -1,5 +1,6 @@
 import { StatusCodes as httpStatus } from "http-status-codes";
 import { APIError } from "../common/APIError";
+import Category from "../model/category";
 import Course from "../model/course";
 import * as authMethod from "../modules/auth/auth.method";
 
@@ -92,6 +93,22 @@ export const existComment = async (req, res, next) => {
     }
     req.comment = comments[commentIndex];
     req.commentIndex = commentIndex;
+    return next();
+  } catch (error) {
+    return next(errorResponse);
+  }
+};
+
+export const existCategory = async (req, res, next) => {
+  const errorResponse = new APIError(
+    "Không tìm danh mục này!!!",
+    httpStatus.BAD_REQUEST,
+    true
+  );
+  const { categoryPath } = req.params;
+  try {
+    const category = await Category.findOne({ urlPath: categoryPath });
+    req.category = category;
     return next();
   } catch (error) {
     return next(errorResponse);

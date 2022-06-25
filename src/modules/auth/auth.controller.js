@@ -16,10 +16,7 @@ export const postSignup = async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   const confirmPassword = req.body.confirmPassword;
-  const active = req.body.active;
   const refreshToken = randomBytes(100).toString("hex");
-  const accountType = req.body.accountType;
-  const privileges = req.body.privileges;
 
   if (confirmPassword != password) {
     res.json("Confirm password does not match");

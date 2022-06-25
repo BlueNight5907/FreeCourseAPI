@@ -34,6 +34,9 @@ const GroupChatSchemal = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Account",
     },
+    background: {
+      type: String,
+    },
     name: {
       type: String,
       required: true,

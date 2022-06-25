@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import util from "util";
 import { accountTypes } from "../../constants/account-constant";
+import Account from "../../model/account";
 const promisify = util.promisify;
 
 const sign = promisify(jwt.sign).bind(jwt);
@@ -50,4 +51,16 @@ export const checkAdmin = async (user) => {
     return true;
   }
   return false;
+};
+
+export const existUser = async (userId) => {
+  try {
+    const account = await Account.findById(userId);
+    if (!account) {
+      return null;
+    }
+    return account;
+  } catch (error) {
+    return null;
+  }
 };

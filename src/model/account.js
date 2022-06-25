@@ -92,6 +92,18 @@ export const AccountSchema = new mongoose.Schema(
         ref: "Privilege",
       },
     ],
+    groups: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "GroupChat",
+      },
+    ],
+    invites: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "GroupChat",
+      },
+    ],
     active: {
       type: Boolean,
       required: true,

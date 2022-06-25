@@ -15,6 +15,7 @@ export const getNewFeeds = async (req, res, next) => {
     .lte(time)
     .sort("-date")
     .limit(page_size || 10);
+
   return res.json(feeds);
 };
 

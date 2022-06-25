@@ -1,5 +1,6 @@
 import express from "express";
 import { commentValidator } from "../../common/comment.validator.js";
+import { paginateValidator } from "../../common/common.validator.js";
 import handleValidationResult from "../../common/handleValidationResult.js";
 import {
   canModifiedCourse,
@@ -8,6 +9,7 @@ import {
   notJoined,
   isJoined,
   notCreator,
+  existCategory,
 } from "../../middlewares/course.middleware.js";
 import * as controller from "./course.controller.js";
 import { courseValidator } from "./validator/course.validator.js";
@@ -47,16 +49,9 @@ router.post(
   handleValidationResult,
   controller.createCourse
 );
-
-router.post(
-  "/create",
-  courseValidator,
-  handleValidationResult,
-  controller.createCourse
-);
-
+router.get("/category/:categoryPath", existCategory, controller.getCourses);
 router.get("/detail/:courseId", existCourse, controller.getInfoCourse);
-router.get("/all", controller.getInfoAllCourse);
+router.get("/all", paginateValidator, controller.getInfoAllCourse);
 router.put(
   "/:courseId",
   existCourse,
