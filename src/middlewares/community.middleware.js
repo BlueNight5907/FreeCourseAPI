@@ -1,6 +1,7 @@
 import { StatusCodes as httpStatus } from "http-status-codes";
 import { APIError } from "../common/APIError";
 import Post from "../model/post";
+import * as authMethod from "../modules/auth/auth.method";
 
 export const canModifiedPost = async (req, res, next) => {
   const { post, user } = req;

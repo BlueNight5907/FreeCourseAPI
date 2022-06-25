@@ -60,12 +60,15 @@ export const postSingin = async (req, res) => {
   const email = req.body.email.toLowerCase();
   const password = req.body.password;
 
-  const user = (await accountModel.findOne({ email: email }))._doc;
+  let user = await accountModel.findOne({ email: email });
+
   if (!user) {
     return res.status(401).send("Tên đăng nhập không tồn tại.");
   } else if (!user.active) {
     return res.status(401).send("Bạn chưa active tài khoản");
   }
+  await user.populate("type");
+  user = user._doc;
   const isPasswordValid = bcrypt.compareSync(password, user.password);
   if (!isPasswordValid) {
     return res.status(401).send("Mật khẩu không chính xác.");
@@ -90,6 +93,7 @@ export const postSingin = async (req, res) => {
   const refreshToken = user.refreshToken;
 
   delete user.password;
+
   return res.json({
     msg: "Đăng nhập thành công.",
     accessToken,

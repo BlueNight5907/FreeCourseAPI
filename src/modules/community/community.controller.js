@@ -1,43 +1,117 @@
+import Account from "../../model/account";
+import Post from "../../model/post";
+import { getDataFromAllSettled, uniqBy } from "../../utils/array-utils";
+import { allComments } from "./community.method";
+
 export const getNewFeeds = async (req, res, next) => {
-  return res.json();
+  let { time, page_size } = req.query;
+  try {
+    time = new Date(time).toISOString();
+  } catch (error) {
+    time = new Date().toISOString();
+  }
+  const feeds = await Post.find()
+    .where("date")
+    .lte(time)
+    .sort("-date")
+    .limit(page_size || 10);
+  return res.json(feeds);
 };
 
 export const getPost = async (req, res, next) => {
-  return res.json();
+  const { post } = req;
+  const creator = await Account.findById(post.creator);
+  const result = post._doc;
+  result.creator = {
+    _id: result.creator,
+    userInformation: creator.userInformation,
+  };
+  return res.json(result);
 };
 
 export const addPost = async (req, res, next) => {
-  return res.json();
+  const { user } = req;
+  const { content, url } = req.body;
+  const post = new Post({ creator: user._id, content, url });
+  await post.save();
+  return res.json({ post });
 };
 
 export const updatePost = async (req, res, next) => {
-  return res.json();
+  const { post } = req;
+  const { content, url } = req.body;
+  post.content = content;
+  post.url = url;
+  await post.save();
+  return res.json({ post });
 };
 
 export const deletePost = async (req, res, next) => {
-  return res.json();
+  const { postId } = req.params;
+  await Post.findByIdAndDelete(postId);
+  return res.json({ message: "Xoá bài viết thành công" });
 };
 
 export const likePost = async (req, res, next) => {
-  return res.json();
+  const { user, post } = req;
+  const isLiked = post.likes.filter((u) => u.equals(user._id)).length > 0;
+  if (isLiked) {
+    post.likes = post.likes.filter((u) => !u.equals(user._id));
+  } else {
+    post.likes.push(user._id);
+  }
+  await post.save();
+  return res.json({ status: !isLiked });
 };
 
 export const getAllComment = async (req, res, next) => {
-  return res.json();
+  const { post } = req;
+  const comments = await allComments(post);
+  res.json(getDataFromAllSettled(comments));
 };
 
 export const addComment = async (req, res, next) => {
-  return res.json();
+  const { user, post } = req;
+  const { content, url } = req.body;
+  post.comments.push({ accountId: user._id, content, url });
+  await post.save();
+  const comment = post.comments.at(-1)._doc;
+  comment.userInformation = (
+    await Account.findById(comment.accountId)
+  ).userInformation;
+  return res.json(comment);
 };
 
 export const updateComment = async (req, res, next) => {
-  return res.json();
+  let { post, comment, commentIndex } = req;
+  const { content, url } = req.body;
+  comment.content = content;
+  comment.url = url;
+  post.comments[commentIndex] = comment;
+  await post.save();
+  comment = comment._doc;
+  comment.userInformation = (
+    await Account.findById(comment.accountId)
+  ).userInformation;
+  return res.json(comment);
 };
 
 export const deleteComment = async (req, res, next) => {
-  return res.json();
+  const { post, commentIndex } = req;
+  post.comments.splice(commentIndex, 1);
+  await post.save();
+  const comments = await allComments(post);
+  return res.json(getDataFromAllSettled(comments));
 };
 
 export const likeComment = async (req, res, next) => {
-  return res.json();
+  let { user, post, comment } = req;
+  const isLiked = comment.likes.filter((u) => u.equals(user._id)).length > 0;
+  if (isLiked) {
+    comment.likes = comment.likes.filter((u) => !u.equals(user._id));
+  } else {
+    comment.likes.push(user._id);
+  }
+  await post.save();
+  return res.json({ status: !isLiked });
 };
