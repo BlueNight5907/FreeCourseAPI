@@ -1,7 +1,12 @@
 import express from "express";
+import { commentValidator } from "../../common/comment.validator";
 import handleValidationResult from "../../common/handleValidationResult";
-import { existCourse } from "../../middlewares/course.middleware";
-import { existModule, existStep } from "../../middlewares/module.middleware";
+import { existCourse, isJoined } from "../../middlewares/course.middleware";
+import {
+  existLearningProcess,
+  existModule,
+  existStep,
+} from "../../middlewares/module.middleware";
 import * as moduleController from "./module.controller";
 import {
   editModuleValidate,
@@ -125,6 +130,7 @@ router.post(
   "/:moduleId/step/:stepId/complete",
   existModule,
   existStep,
+  existLearningProcess,
   moduleController.completeLesson
 );
 
@@ -141,12 +147,14 @@ router.post(
   "/:moduleId/step/:stepId/comment",
   existModule,
   existStep,
+  commentValidator,
+  handleValidationResult,
   moduleController.addComment
 );
 
 // POST delete a comment in step
 router.delete(
-  "/:moduleId/step/:stepId/comment",
+  "/:moduleId/step/:stepId/comment/:commentId",
   existModule,
   existStep,
   moduleController.deleteComment

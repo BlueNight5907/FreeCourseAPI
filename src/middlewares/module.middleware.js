@@ -1,5 +1,7 @@
 import { StatusCodes as httpStatus } from "http-status-codes";
 import { APIError } from "../common/APIError";
+import Course from "../model/course";
+import LearningProcess from "../model/learning-process";
 import Module from "../model/module";
 
 export const existModule = async (req, res, next) => {
@@ -19,6 +21,25 @@ export const existModule = async (req, res, next) => {
   } catch (_) {
     return next(errorResponse);
   }
+};
+
+export const existLearningProcess = async (req, res, next) => {
+  const errorResponse = new APIError(
+    "Chưa tham gia vào khóa học này!!",
+    httpStatus.CONFLICT,
+    true
+  );
+  const { user, module } = req;
+  const course = await Course.findById(module.courseId);
+  const learningProcess = await LearningProcess.findOne({
+    accountId: user._id,
+    courseId: course._id,
+  });
+  if (!learningProcess) {
+    return next(errorResponse);
+  }
+  req.learningProcess = learningProcess;
+  return next();
 };
 
 export const existStep = async (req, res, next) => {

@@ -14,3 +14,11 @@ export const getDataFromAllSettled = (arr) => {
     return result;
   }, []);
 };
+
+export function uniqBy(a, key) {
+  var seen = {};
+  return a.filter(function (item) {
+    var k = key(item);
+    return seen.hasOwnProperty(k) ? false : (seen[k] = true);
+  });
+}

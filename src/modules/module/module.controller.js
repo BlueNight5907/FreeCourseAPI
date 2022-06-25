@@ -2,6 +2,9 @@ import { stepType } from "../../constants/model-constant";
 import Lesson from "../../model/lesson";
 import Module from "../../model/module";
 import * as moduleMethods from "./module.method";
+import LearningProcess from "../../model/learning-process";
+import Account from "../../model/account";
+import { getDataFromAllSettled } from "../../utils/array-utils";
 
 export const addNewModule = async (req, res, next) => {
   const { course, body } = req;
@@ -120,19 +123,99 @@ export const getTestAnswer = async (req, res) => {};
 
 export const addComment = async (req, res) => {
   const { user, step } = req;
+  const { content, url } = req.body;
   let doc;
   switch (step.type) {
     case stepType.TEST:
-      doc = await Test.findByIdAndDelete(step.content);
+      doc = await Test.findById(step.content);
       break;
     default:
-      doc = await Lesson.findByIdAndDelete(step.content);
+      doc = await Lesson.findById(step.content);
       break;
   }
+  doc.comments.push({ accountId: user._id, content, url });
+  await doc.save();
+  const comments = await Promise.allSettled(
+    doc.comments.map(async (item) => {
+      item = item._doc;
+      item.userInformation = (
+        await Account.findById(item.accountId)
+      ).userInformation;
+      return item;
+    })
+  );
+  res.json({ comments: getDataFromAllSettled(comments) });
 };
 
-export const getAllComment = async (req, res) => {};
+export const getAllComment = async (req, res) => {
+  const { step } = req;
+  let doc;
+  switch (step.type) {
+    case stepType.TEST:
+      doc = await Test.findById(step.content);
+      break;
+    default:
+      doc = await Lesson.findById(step.content);
+      break;
+  }
+  const comments = await Promise.allSettled(
+    doc.comments.map(async (item) => {
+      item = item._doc;
+      item.userInformation = (
+        await Account.findById(item.accountId)
+      ).userInformation;
+      return item;
+    })
+  );
+  res.json({
+    message: "Thêm bình luận thành công",
+    comments: getDataFromAllSettled(comments),
+  });
+};
 
-export const deleteComment = async (req, res) => {};
+export const deleteComment = async (req, res) => {
+  const { user, step } = req;
+  const { commentId } = req.params;
+  let doc;
+  switch (step.type) {
+    case stepType.TEST:
+      doc = await Test.findById(step.content);
+      break;
+    default:
+      doc = await Lesson.findById(step.content);
+      break;
+  }
 
-export const completeLesson = async (req, res) => {};
+  const commentIndex = doc.comments.findIndex(
+    (item) => item.accountId.equals(user._id) && item._id.equals(commentId)
+  );
+
+  doc.comments.splice(commentIndex, 1);
+  await doc.save();
+
+  const comments = await Promise.allSettled(
+    doc.comments.map(async (item) => {
+      item = item._doc;
+      item.userInformation = (
+        await Account.findById(item.accountId)
+      ).userInformation;
+      return item;
+    })
+  );
+  res.json({
+    message: "Xóa bình luận thành công",
+    comments: getDataFromAllSettled(comments),
+  });
+};
+
+export const completeLesson = async (req, res) => {
+  const { step, learningProcess } = req;
+  learningProcess.visited = new Date().getTime();
+  const isCompleted =
+    learningProcess.learned.filter((i) => i.stepId.equals(step._id)).length > 0;
+  if (!isCompleted) {
+    learningProcess.learned.push({ stepId: step._id, type: step.type });
+    await learningProcess.save();
+  }
+  res.json(learningProcess);
+};

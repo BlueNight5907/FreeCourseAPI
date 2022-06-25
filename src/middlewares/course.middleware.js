@@ -22,7 +22,7 @@ export const existCourse = async (req, res, next) => {
   }
 };
 
-export const isJoined = async (req, res, next) => {
+export const notJoined = async (req, res, next) => {
   const errorResponse = new APIError(
     "Đã tham gia vào khóa học này!!",
     httpStatus.CONFLICT,
@@ -35,7 +35,7 @@ export const isJoined = async (req, res, next) => {
   return next();
 };
 
-export const isNotJoined = async (req, res, next) => {
+export const isJoined = async (req, res, next) => {
   const errorResponse = new APIError(
     "Chưa tham gia vào khóa học này!!",
     httpStatus.CONFLICT,
@@ -84,11 +84,14 @@ export const existComment = async (req, res, next) => {
   const { course } = req;
   try {
     const comments = course.comments;
-    const isExist =
-      comments.filter((comment) => comment._id.equals(commentId)).length > 0;
-    if (!isExist) {
+    const commentIndex = comments.findIndex((comment) =>
+      comment._id.equals(commentId)
+    );
+    if (commentIndex < 0) {
       throw errorResponse;
     }
+    req.comment = comments[commentIndex];
+    req.commentIndex = commentIndex;
     return next();
   } catch (error) {
     return next(errorResponse);

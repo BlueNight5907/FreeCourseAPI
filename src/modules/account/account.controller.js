@@ -10,8 +10,7 @@ export const putEditAccount = async (req, res) => {
   const desc = req.body.desc;
   const others = req.body.others;
 
-  const { email } = req;
-  const user = await accountModel.findOne({ email: email });
+  const { user } = req;
 
   user.userInformation = {};
   user.userInformation.fullName = fullName;
@@ -99,4 +98,12 @@ export const getInfoUser = async (req, res) => {
       userInformation: user.userInformation,
     })
   );
+};
+
+export const getMyAccount = async (req, res) => {
+  let { user } = req;
+  await user.populate("type");
+  user = user._doc;
+  delete user.password;
+  return res.json(user);
 };
