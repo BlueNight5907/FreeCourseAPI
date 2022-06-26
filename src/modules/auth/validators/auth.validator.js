@@ -5,7 +5,7 @@ export const updatePasswordValidator = [
   check("newPassword")
     .notEmpty()
     .withMessage("Mật khẩu mới không được để trống")
-    .isLength({ min: 8 })
+    .isLength({ min: 6 })
     .withMessage("Mật khẩu quá ngắn"),
   check("confirmPassword").custom((value, { req }) => {
     if (value !== req.body.newPassword) {
@@ -20,7 +20,7 @@ export const loginValidator = [
   check("password")
     .notEmpty()
     .withMessage("Mật khẩu không được để trống")
-    .isLength({ min: 8 })
+    .isLength({ min: 6 })
     .withMessage("Mật khẩu quá ngắn"),
 ];
 
