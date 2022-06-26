@@ -12,9 +12,7 @@ export const isAuth = async (req, res, next) => {
     return res.status(401).send("Không tìm thấy access token!");
   }
   const token = accessTokenFromHeader.split(" ")[1];
-
   const accessTokenSecret = jwtVariable.accessTokenSecret;
-
   const verified = await authMethod.verifyToken(token, accessTokenSecret);
   if (!verified) {
     return res
