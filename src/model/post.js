@@ -7,6 +7,14 @@ const PostSchemal = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Account",
     },
+    title: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: false,
+    },
     content: {
       type: String,
       required: false,

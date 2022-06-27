@@ -32,15 +32,23 @@ export const getPost = async (req, res, next) => {
 
 export const addPost = async (req, res, next) => {
   const { user } = req;
-  const { content, url } = req.body;
-  const post = new Post({ creator: user._id, content, url });
+  const { title, description, content, url } = req.body;
+  const post = new Post({
+    creator: user._id,
+    title,
+    description,
+    content,
+    url,
+  });
   await post.save();
   return res.json({ post });
 };
 
 export const updatePost = async (req, res, next) => {
   const { post } = req;
-  const { content, url } = req.body;
+  const { title, description, content, url } = req.body;
+  post.title = title;
+  post.description = description;
   post.content = content;
   post.url = url;
   await post.save();
