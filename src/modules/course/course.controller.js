@@ -73,6 +73,8 @@ export const getInfoCourse = async (req, res) => {
   const { course } = req;
   await course.populate("level");
   await course.populate("category");
+  await course.populate("modules");
+  await course.populate("tags");
   const infoCourse = new Object({
     title: course.title,
     content: course.content,
