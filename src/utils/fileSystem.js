@@ -18,6 +18,15 @@ async function readFile(filePath) {
   }
 }
 
+async function writeFile(filePath, data) {
+  try {
+    await fs.writeFile(filePath, data);
+    return data;
+  } catch (error) {
+    console.error(`Got an error trying to read the file: ${error.message}`);
+  }
+}
+
 async function existFile(filePath) {
   try {
     await fs.access(filePath);
@@ -38,4 +47,4 @@ async function deleteFile(filePath) {
     return false;
   }
 }
-export { moveFile, readFile, deleteFile, existFile };
+export { moveFile, readFile, writeFile, deleteFile, existFile };
