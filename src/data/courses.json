@@ -443,6 +443,231 @@
           ]
         }
       ]
+    },
+    {
+      "title": "JavaScript Nâng Cao",
+      "shortDesc": "",
+      "content": "Hiểu sâu hơn về cách Javascript hoạt động, tìm hiểu về IIFE, closure, reference types, this keyword, bind, call, apply, prototype, ...\n",
+      "background": "https://fullstack.edu.vn/courses/javascript-nang-cao",
+      "categoryPath": "frontend",
+      "level": "Nâng cao",
+      "tags": ["JavaScript"],
+      "gains": [
+        "Được học kiến thức miễn phí với nội dung chất lượng hơn mất phí",
+        "Hiểu được cách tư duy nâng cao của các lập trình viên có kinh nghiệm",
+        "Có nền tảng Javascript vững chắc để làm việc với mọi thư viện, framework viết bởi Javascript",
+        "Các kiến thức nâng cao của Javascript giúp code trở nên tối ưu hơn",
+        "Hiểu được các khái niệm khó như từ khóa this, phương thức bind, call, apply & xử lý bất đồng bộ",
+        "Nâng cao cơ hội thành công khi phỏng vấn xin việc nhờ kiến thức chuyên môn vững chắc"
+      ],
+      "modules": [
+        {
+          "title": "Giới thiệu",
+          "steps": [
+            {
+              "title": "Ra mắt khóa Javascript nâng cao (javascript advanced) tại F8!",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "90000",
+              "url": "https://youtu.be/MGhw6XliFgo",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "IIFE, Scope,Closue",
+          "steps": [
+            {
+              "title": "IIFE trong Javascript là gì? Hiểu IIFE cùng F8 nha!",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1479998",
+              "url": "https://youtu.be/N-3GU1F1UBY",
+              "content": "Lưu ý: Trong video có một đoạn mình nói chưa rõ cho lắm, đó là đoạn một hàm có các toán tử đứng trước như: !function() {}, +function() {}, -function() {}, v.v đều trở thành một expression function. Vì vậy bạn chỉ cần thêm toán tử \"call\" vào sau chúng là có thể invoke hàm này. Nên các cú pháp như vậy vẫn có thể được sử dụng để tạo ra 1 IIFE. Ví dụ: !function() {}(), +function() {}(), -function() {}(), v.v\n\nIIFE viết tắt của Immediately invoked function expression. Là một biểu thức tạo ra một hàm được thực thi ngay lập tức. Ứng dụng của IIFE là tạo ra một phạm vi hàm mới với cách viết ngắn gọn."
+            },
+            {
+              "title": "Scope trong Javascript? Hiểu thật rõ về phạm vi nào!",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "2480000",
+              "url": "https://youtu.be/5N8vz_VmszE",
+              "content": ""
+            },
+            {
+              "title": "Closure trong Javascript có phải là cái gì \"kinh khủng\"?",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "3480000",
+              "url": "https://youtu.be/xtQtGKL0NCI",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Hoisting, Strict Mode, Data Types",
+          "steps": [
+            {
+              "title": "Hoisting trong Javascript? Let, const có được hoisted hay không?",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "680000",
+              "url": "https://youtu.be/3MLhU1DrUxM",
+              "content": "Hoisting cũng có thể được coi là khái niệm cơ bản trong Javascript. Tuy nhiên khái niệm này chưa phù hợp để đưa vào khóa cơ bản vì:\n- Các bạn sẽ thường thấy nhiều bài thử thách rất khó cho người mới khi áp dụng hoisting\n- Để hiểu đúng đắn về hoisting thì không phải người mới học nào cũng dễ dàng làm được\n- Theo mình, để \"lean\" cho người mới thì nên loại bỏ những kiến thức chưa cần thiết phải học trong khóa cơ bản\nTrên là những lý do tại sao mình đưa hoisting vào khóa JS nâng cao. Chúc các bạn học tập vui vẻ!"
+            },
+            {
+              "title": "\"use strict\" hay strict mode trong Javascript?",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "480000",
+              "url": "https://youtu.be/w1W-j4cSPF0",
+              "content": "Strict Mode - Chế độ nghiêm ngặt, hay hiểu đơn giản thì \"use strict\" là chế độ giúp các bạn viết code Javascript trở nên an toàn hơn. Khi sử dụng strict mode thì trong một số trường hợp các bạn sẽ tránh được những cách viết code được coi là chưa an toàn như:\n- Quên sử dụng từ khóa khai báo biến\n- Tránh đặt nhầm trùng tên các tham số\n- Báo lỗi trong một số được hợp không được phép\n- Không sử dụng được một số từ khóa dễ gây nhầm lẫn hoặc được coi là có thể được thêm vào ngôn ngữ trong tương lai"
+            },
+            {
+              "title": "Primitive Types & Reference Types trong Javascript",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1880000",
+              "url": "https://youtu.be/n4tS1Q5-EzY",
+              "content": "Primitive Types & Reference Types | Value types & Reference types\n\nTrong video phần nói về value types mình xem lại thấy vẫn chưa vừa ý lắm vì giải thích chưa được thật sự chi tiết. Sau mình sẽ cố gắng làm video giải thích clean hơn về value types nhé.\n"
+            }
+          ]
+        },
+        {
+          "title": "This trong JavaScript",
+          "steps": [
+            {
+              "title": "Từ khóa \"this\" trong Javascript? Dễ hiểu cùng F8 nào!",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1580000",
+              "url": "https://youtu.be/ii1Ra_zLDIo",
+              "content": ""
+            },
+            {
+              "title": "Fn.bind() method P1? Học rồi thì xem lại cho chắc nha!",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1480000",
+              "url": "https://youtu.be/F5z6YoR8of0",
+              "content": ""
+            },
+            {
+              "title": "Fn.bind() method P2? Thêm vài ví dụ \"khó\" hơn nào!",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1480000",
+              "url": "https://youtu.be/6j9b2_E34JM",
+              "content": ""
+            },
+            {
+              "title": "Fn.call() method trong Javascript?",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1280000",
+              "url": "https://youtu.be/QxLTSdTJDXY",
+              "content": "Ứng dụng của Fn.call() method trong thực tế là:\n- Gọi hàm với this tham chiếu tới đối tượng khác\n- Kỹ thuật mượn hàm (function borrowing)\n- Kế thừa thuộc tính, phương thức từ Constructor cha"
+            },
+            {
+              "title": "Fn.apply() method trong Javascript?",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": 480000,
+              "url": "https://youtu.be/a4FjX4Z-9Rs",
+              "content": "Với phương thức call chúng ta vẫn có thể thừa kế từ arguments khi kết hợp với toán tử spread nhé anh em. Nói chung là để làm được cùng một việc thì đôi khi sẽ có nhiều cách làm được và cho kết quả tương tự nhau. Gặp tình huống này thì anh em viết sao cho đơn giản, dễ hiểu là ok nhé. Tùy cơ ứng biến ý ^^ "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "F8 Chrome Extension",
+      "shortDesc": "Tìm hiểu về chrome extension",
+      "content": "",
+      "background": "https://tranquocdai.com/dong-goi-extensions-bat-ky.html",
+      "categoryPath": "frontend",
+      "level": "Mới bắt đầu",
+      "tags": ["Web", "JavaScript"],
+      "gains": [
+        "Hiểu được Chrome Extension là gì?",
+        "Biết cách sử dụng  Chrome Extension"
+      ],
+      "modules": [
+        {
+          "title": "F8 Chrome Extension",
+          "steps": [
+            {
+              "title": "F8 thả Haha on Youtube | Thả Haha trên Youtube | Haha reaction on Youtube",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "60000",
+              "url": "https://youtu.be/iYwWwggZOP4",
+              "content": "F8 Haha is a small application to help you have more fun through the interactive drop support Haha on Youtube.\n\nAttention:\n- This app is not by google / youtube\n- The release of Haha emotions with Youtube is just the \"Like\" action.\n- We use a third party system to identify your \"Haha\" feelings\n- You must be logged in with a Google account to be able to \"Haha\". This is necessary to be able to verify your feelings \"Haha\" and not that of anyone else.\n\nCharacteristics:\n- Never store user information\n- Never asked to fill out a bank / credit card\n- Do not send data to the internet, this utility only works on your computer\n\nPolicy & terms:\nUpdating\n"
+            },
+            {
+              "title": "F8 Cookies | Chia sẻ tài khoản không lộ mật khẩu",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "180000",
+              "url": "https://youtu.be/5LZAue2I6mM",
+              "content": "Chức năng chính:\n1. Xuất cookies ra file\n2. Nhập cookies từ file\n3. Đặt mật khẩu cho file\n4. Tự động đăng nhập nếu cookies hợp lệ\n\nĐặc điểm:\n- Không bao giờ lưu trữ thông tin của người dùng\n- Không bao giờ yêu cầu điền thẻ ngân hàng / tín dụng\n- Không gửi dữ liệu ra internet, tiện ích chỉ hoạt động trên máy tính của bạn\n\nChính sách & điều khoản:\nĐang cập nhật"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Lập trình với React Native",
+      "shortDesc": "Lập trình Mobile với React Native",
+      "content": "",
+      "background": "https://niithanoi.edu.vn/pic/News/hoc-lap-trinh-ung-dung-di-dong-nhu-the-nao.jpg",
+      "categoryPath": "mobile",
+      "level": "Mới bắt đầu",
+      "tags": ["ReactJS", "JavaScript", "React Native"],
+      "gains": [],
+      "modules": [
+        {
+          "title": "Giới thiệu",
+          "steps": [
+            {
+              "title": "Giới thiệu React Native",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "600000",
+              "url": "https://youtu.be/NDeFEFIe7yg",
+              "content": ""
+            },
+            {
+              "title": "Cài đặt môi trường phát triển React Native",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": 480000,
+              "url": "https://youtu.be/H17BrNIHI0Y",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "React Dom trong react Native",
+          "steps": [
+            {
+              "title": "So sánh React DOM vs. React Native",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": 480000,
+              "url": "https://youtu.be/sBjcKu7iqgg",
+              "content": ""
+            },
+            {
+              "title": "Tạo React Native project dùng expo",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": 480000,
+              "url": "https://youtu.be/z1Q1CAh17w0",
+              "content": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

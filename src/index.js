@@ -24,7 +24,6 @@ app.use(
 
 // Get app directory name
 const __dirname = path.resolve();
-
 // Init static folder
 app.use("/public", express.static(__dirname + "/public"));
 

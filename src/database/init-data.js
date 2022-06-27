@@ -2,10 +2,13 @@ import Account, { AccountType } from "../model/account";
 import bcrypt from "bcrypt";
 import path from "path";
 import config from "../config";
-import { Level } from "../model/course";
+import Course, { Level } from "../model/course";
 import Category from "../model/category";
 import Tag from "../model/tag";
+import Lesson from "../model/lesson";
+import Module from "../model/module";
 import { readFile } from "../utils/fileSystem";
+import { getDataFromAllSettled } from "../utils/array-utils";
 
 const createAdminAccount = async () => {
   const adminType = (await AccountType.findOne({ name: "admin" }))._doc;
@@ -16,7 +19,7 @@ const createAdminAccount = async () => {
 
   console.log("Start create root account -----------------------");
 
-  const password = "admin";
+  const password = "admin123";
   const hashPassword = bcrypt.hashSync(password, parseInt(config.salt));
 
   const admin = new Account({
@@ -25,6 +28,10 @@ const createAdminAccount = async () => {
     type: adminType._id,
     active: true,
     lockState: false,
+    userInformation: {
+      fullName: "Super Admin",
+      avatar: "/public/user/admin-avatar.png",
+    },
   });
 
   await admin.save().then((_) => console.log("Create admin successfully"));
@@ -240,10 +247,87 @@ const addTags = async () => {
     })
   );
 };
+
 const readCourseData = async () => {
   const coursesURL = path.resolve("./src/data/courses.json");
   const fileData = await readFile(coursesURL);
   const courses = JSON.parse(fileData).data;
+  return courses;
+};
+
+const generateCourse = async () => {
+  const courses = await readCourseData();
+  const admin = await Account.findOne({ email: "admin@tdt-learning.com" });
+  Promise.all(
+    courses.map(async (course) => {
+      let {
+        title,
+        shortDesc,
+        content,
+        background,
+        gains,
+        tags,
+        categoryPath,
+        level,
+        modules,
+      } = course;
+      const existCourse = await Course.findOne({ title });
+      if (existCourse) return;
+      const category = (await Category.findOne({ urlPath: categoryPath }))._id;
+      level = (await Level.findOne({ name: level }))._id;
+      tags = await Promise.all(
+        tags.map(async (name) => {
+          const tag = await Tag.findOne({ name });
+          return tag._id;
+        })
+      );
+
+      const newCourse = new Course({
+        creator: admin._id,
+        title,
+        shortDesc,
+        content,
+        background,
+        gains,
+        category,
+        level,
+        tags,
+      });
+      const courseModules = await Promise.all(
+        modules.map(async (data) => {
+          const steps = await Promise.all(
+            data.steps.map(async (item) => {
+              const lesson = new Lesson({
+                type: item.resourceType,
+                url: item.url,
+                content: item.content,
+              });
+              await lesson.save();
+              return {
+                title: item.title,
+                type: item.type,
+                time: item.time,
+                content: lesson._id,
+              };
+            })
+          );
+
+          const module = new Module({
+            courseId: newCourse._id,
+            title: data.title,
+            steps,
+          });
+
+          await module.save();
+          return module._id;
+        })
+      );
+
+      newCourse.modules = courseModules;
+      await newCourse.save();
+      console.log(`Create course "${title}" successfully`);
+    })
+  );
 };
 const createData = async () => {
   await addAccountType();
@@ -251,6 +335,6 @@ const createData = async () => {
   await addCourseLevel();
   await addCourseCategories();
   await addTags();
-  readCourseData();
+  await generateCourse();
 };
 export default createData;

@@ -44,7 +44,7 @@ const CourseSchema = new mongoose.Schema(
     },
     content: {
       type: String,
-      required: true,
+      required: false,
     },
     shortDesc: {
       type: String,
