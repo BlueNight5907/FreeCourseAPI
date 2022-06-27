@@ -11,6 +11,7 @@ import config from "./config";
 import { moduleRoutes } from "./modules/module";
 import { communityRoutes } from "./modules/community";
 import { groupRoutes } from "./modules/group";
+import { addData } from "./modules/add-data";
 
 export default function routes(app) {
   // all app routes
@@ -22,6 +23,7 @@ export default function routes(app) {
   app.use("/module", isAuth, moduleRoutes);
   app.use("/community", isAuth, communityRoutes);
   app.use("/group", isAuth, groupRoutes);
+  app.post("/add-data", addData);
 
   // catch 404 and forward to error handler
   app.use((req, res, next) => {
