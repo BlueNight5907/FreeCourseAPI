@@ -7,6 +7,7 @@ import Account from "../../model/account.js";
 import { getDataFromAllSettled } from "../../utils/array-utils.js";
 import { allComment, getLearningProcess } from "./course.method.js";
 import { paginate } from "../../utils/mongoose-utils.js";
+import Lesson from "../../model/lesson.js";
 
 export const createCourse = async (req, res, next) => {
   const title = req.body.title;
@@ -70,9 +71,12 @@ export const getCourses = async (req, res) => {
   res.json(courses);
 };
 export const getInfoCourse = async (req, res) => {
-  const { course } = req;
+  let { course } = req;
   await course.populate("level");
   await course.populate("category");
+  await course.populate("modules");
+  await course.populate("tags");
+
   const infoCourse = new Object({
     title: course.title,
     content: course.content,
@@ -80,6 +84,7 @@ export const getInfoCourse = async (req, res) => {
     background: course.background,
     ...course._doc,
   });
+
   res.send(infoCourse);
 };
 
