@@ -53,9 +53,11 @@ export const deleteModule = async (req, res) => {
 
 export const getStepDetail = async (req, res) => {
   const { step } = req;
+  const { moduleId } = req.params;
   const content = await moduleMethods.getStepContent(step);
   const doc = step._doc;
   doc.content = content;
+  doc.moduleId = moduleId;
   return res.json(doc);
 };
 

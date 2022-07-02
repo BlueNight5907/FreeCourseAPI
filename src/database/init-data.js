@@ -259,7 +259,7 @@ const generateCourse = async () => {
   const courses = await readCourseData();
   const admin = await Account.findOne({ email: "admin@tdt-learning.com" });
   Promise.all(
-    courses.map(async (course) => {
+    courses.map(async (course, index) => {
       let {
         title,
         shortDesc,
@@ -271,8 +271,15 @@ const generateCourse = async () => {
         level,
         modules,
       } = course;
+      // console.log(`${index}. Checking course "${title}" start-----------`);
+      if (index === courses.length - 1) {
+        // console.log("\n--------------------------\n");
+      }
       const existCourse = await Course.findOne({ title });
-      if (existCourse) return;
+      if (existCourse) {
+        // console.log(`Course "${title}" has been created`);
+        return null;
+      }
       const category = (await Category.findOne({ urlPath: categoryPath }))._id;
       level = (await Level.findOne({ name: level }))._id;
       tags = await Promise.all(
@@ -335,6 +342,6 @@ const createData = async () => {
   await addCourseLevel();
   await addCourseCategories();
   await addTags();
-  await generateCourse();
+  generateCourse();
 };
 export default createData;

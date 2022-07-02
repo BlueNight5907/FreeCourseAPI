@@ -106,6 +106,9 @@ export const existCategory = async (req, res, next) => {
     true
   );
   const { categoryPath } = req.params;
+  if (categoryPath === "all") {
+    return next();
+  }
   try {
     const category = await Category.findOne({ urlPath: categoryPath });
     req.category = category;
