@@ -47,20 +47,21 @@ export const getCourses = async (req, res) => {
   const { page = 0, page_size = 10, tags, sort, order = "desc" } = req.query;
   const { categoryPath } = req.params;
   const { category } = req;
+
   const courses = await paginate(
     Course,
     page,
     page_size,
     sort ? { [sort]: order } : { date: order },
     {
-      ...(categoryPath !== "all" && { category: category._id }),
+      ...(categoryPath !== "all" && { category: category?._id }),
       ...(tags && {
         tags: {
           $in: tags.split(","),
         },
       }),
     },
-    ["level", "category"]
+    ["level", "category", "tags"]
   );
   res.json(courses);
 };
