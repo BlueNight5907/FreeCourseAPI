@@ -52,7 +52,7 @@ export const getCourses = async (req, res) => {
     Course,
     page,
     page_size,
-    sort ? { [sort]: order } : { date: order },
+    sort ? { [sort]: order } : { createdAt: order },
     {
       ...(categoryPath !== "all" && { category: category?._id }),
       ...(tags && {
