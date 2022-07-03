@@ -28,7 +28,6 @@ export const isAuth = async (req, res, next) => {
   }
   req.email = verified.payload.email;
   req.user = user;
-
   return next();
 };
 

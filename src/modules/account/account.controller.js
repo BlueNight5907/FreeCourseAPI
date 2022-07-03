@@ -94,13 +94,15 @@ export const editAccountAdmin = async (req, res) => {
 export const getInfoUser = async (req, res) => {
   const _id = req.params.id;
   const user = await accountModel.findById(_id);
-  res.send(
-    new Object({
-      id: user._id,
-      email: user.email,
-      userInformation: user.userInformation,
-    })
-  );
+  if (user) {
+    res.send(
+      new Object({
+        id: user._id,
+        email: user.email,
+        userInformation: user.userInformation,
+      })
+    );
+  } else res.status(404).send({ message: "not found" });
 };
 
 export const getMyAccount = async (req, res) => {

@@ -12,7 +12,11 @@ export const getLearningProcess = async (learningProcess) => {
     "level",
   ]);
   course = deleteSecureField(course._doc);
-  course.creator = (await Account.findById(course.creator)).userInformation;
+  const creator = await Account.findById(course.creator);
+  course.creator = {
+    ...creator.userInformation._doc,
+    _id: creator._id,
+  };
   return {
     ...learningProcess,
     courseData: course,

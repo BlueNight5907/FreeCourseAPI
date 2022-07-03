@@ -139,6 +139,7 @@ export const joinCourse = async (req, res, next) => {
   const { course, user } = req;
   const _IdAccount = user._id;
   course.participants.push(_IdAccount);
+
   const learningProcess = new LearningProcess({
     accountId: user._id,
     courseId: course._id,
@@ -187,7 +188,7 @@ export const studentInCourse = async (req, res) => {
 
 export const myCourses = async (req, res) => {
   const { user } = req;
-  let allCourse = await LearningProcess.find({ userId: user._id });
+  let allCourse = await LearningProcess.find({ accountId: user._id });
   allCourse = await Promise.allSettled(allCourse.map(getLearningProcess));
   res.json(getDataFromAllSettled(allCourse));
 };

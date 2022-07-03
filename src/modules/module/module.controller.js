@@ -43,6 +43,18 @@ export const editModule = async (req, res) => {
 
 export const deleteModule = async (req, res) => {
   const { module, course } = req;
+  await LearningProcess.updateMany(
+    {
+      "learned.stepId": {
+        $all: module.steps,
+      },
+    },
+    {
+      $pullAll: {
+        favorites: [{ stepId: step._id }],
+      },
+    }
+  );
   await Module.findByIdAndDelete(module._id);
   course.modules = course.modules.filter(
     (id) => id.toString() !== module._id.toString()
@@ -116,6 +128,18 @@ export const deleteStep = async (req, res) => {
       break;
   }
   await module.save();
+  await LearningProcess.updateMany(
+    {
+      "learned.stepId": {
+        $all: [step._id],
+      },
+    },
+    {
+      $pullAll: {
+        favorites: [{ stepId: step._id }],
+      },
+    }
+  );
   return res.json();
 };
 
