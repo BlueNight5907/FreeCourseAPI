@@ -7,6 +7,7 @@ import Account from "../../model/account.js";
 import { getDataFromAllSettled } from "../../utils/array-utils.js";
 import { allComment, getLearningProcess } from "./course.method.js";
 import { paginate } from "../../utils/mongoose-utils.js";
+import Lesson from "../../model/lesson.js";
 
 export const createCourse = async (req, res, next) => {
   const title = req.body.title;
@@ -43,36 +44,34 @@ export const createCourse = async (req, res, next) => {
 };
 
 export const getCourses = async (req, res) => {
-  const {
-    page = 0,
-    page_size = 10,
-    tags,
-    rates,
-    sort,
-    order = "desc",
-  } = req.query;
+  const { page = 0, page_size = 10, tags, sort, order = "desc" } = req.query;
+  const { categoryPath } = req.params;
   const { category } = req;
+
   const courses = await paginate(
     Course,
     page,
     page_size,
-    sort ? { [sort]: order } : { date: order },
+    sort ? { [sort]: order } : { createdAt: order },
     {
-      category,
+      ...(categoryPath !== "all" && { category: category?._id }),
       ...(tags && {
         tags: {
           $in: tags.split(","),
         },
       }),
     },
-    ["level", "category"]
+    ["level", "category", "tags"]
   );
   res.json(courses);
 };
 export const getInfoCourse = async (req, res) => {
-  const { course } = req;
+  let { course } = req;
   await course.populate("level");
   await course.populate("category");
+  await course.populate("modules");
+  await course.populate("tags");
+
   const infoCourse = new Object({
     title: course.title,
     content: course.content,
@@ -80,6 +79,7 @@ export const getInfoCourse = async (req, res) => {
     background: course.background,
     ...course._doc,
   });
+
   res.send(infoCourse);
 };
 
@@ -139,6 +139,7 @@ export const joinCourse = async (req, res, next) => {
   const { course, user } = req;
   const _IdAccount = user._id;
   course.participants.push(_IdAccount);
+
   const learningProcess = new LearningProcess({
     accountId: user._id,
     courseId: course._id,
@@ -187,7 +188,7 @@ export const studentInCourse = async (req, res) => {
 
 export const myCourses = async (req, res) => {
   const { user } = req;
-  let allCourse = await LearningProcess.find({ userId: user._id });
+  let allCourse = await LearningProcess.find({ accountId: user._id });
   allCourse = await Promise.allSettled(allCourse.map(getLearningProcess));
   res.json(getDataFromAllSettled(allCourse));
 };

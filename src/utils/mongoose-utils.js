@@ -7,8 +7,8 @@ export const paginate = async (
   populate = []
 ) => {
   const findPromise = Model.find(condition)
-    .limit((page - 1) * page_size > 0 ? page_size : 0)
-    .skip((page - 1) * page_size > 0 ? (page - 1) * page_size : 0)
+    .limit(page * page_size > 0 ? page_size : 0)
+    .skip(page * page_size > 0 ? (page - 1) * page_size : 0)
     .sort(sort)
     .populate(populate);
   const countPromise = Model.countDocuments(condition);

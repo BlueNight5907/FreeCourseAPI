@@ -445,10 +445,2120 @@
       ]
     },
     {
+      "title": "Học SQL Cơ Bản",
+      "shortDesc": "Trong phần này mình sẽ giới thiệu những nội dung chính sẽ bao gồm trong danh sách phát của CSDL cơ bản",
+      "content": "Khóa học dành cho\nNhân viên trong nhiều lĩnh vực : Kinh doanh, hành chính, marketing, tài chính, nhân sự ... thường hay sử dụng dữ liệu để phân tích, báo cáo\nCác chuyên gia phân tích cần sử dụng công nghệ để phân tích dữ liệu kinh doanh cho Business Insights và xây dựng báo cáo trực quan\nĐội ngũ quản lý, nhân sự cấp cao và chủ doanh nghiệp biết cách đọc báo cáo Power BI, tìm ra ý nghĩa của các báo cáo dữ liệu để đưa ra các quyết định kinh doanh phù hợp\nCác bạn sinh viên, người đi làm có nhu cầu tìm hiểu và nâng cao kiến thức",
+      "background": "https://fptcloud.com/wp-content/uploads/2021/12/Untitled-3-01.jpg",
+      "categoryPath": "database",
+      "level": "Cơ bản",
+      "tags": ["Web", "WebAPI", "ExpressJS"],
+      "gains": ["Kiến thức căn bản về SQL"],
+      "modules": [
+        {
+          "title": "Mở đầu bài học",
+          "steps": [
+            {
+              "title": "Giới thiệu loạt bài SQL căn bản và nâng cao",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "120000",
+              "url": "https://youtu.be/AGVNe9FPH04",
+              "content": ""
+            },
+            {
+              "title": "Cài đặt MySQL Server & MySQL Workbench",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "720000",
+              "url": "https://youtu.be/BYwb50Xbf8s",
+              "content": "Hướng dẫn cài đặt bộ công cụ MySQL server community miễn phí và công cụ MySQL Workbench"
+            },
+            {
+              "title": "Cài đặt Microsoft SQL Server 2019",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": 480000,
+              "url": "https://youtu.be/WZZkDdklVlk",
+              "content": "Hướng dẫn cài đặt MS SQL Server 2019 chi tiết. how to install ms sql server 2019 on window"
+            }
+          ]
+        },
+        {
+          "title": "Kiến thức cơ sở lý thuyết",
+          "steps": [
+            {
+              "title": "CSDL quan hệ và Hệ quản trị CSDL",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "360000",
+              "url": "https://youtu.be/InUDwfsGG4A",
+              "content": "Phân biệt khái niệm CSDL và hệ quản trị CSDL. bài này sẽ cung cấp khái niệm cơ bản đầu tiên về csdl và dbms. Tiếp đó là minh họa về ứng dụng và hình ảnh cụ thể của CSDL trong ứng dụng. đồng thời cung cấp nguồn thông tin tham khảo đáng tin cậy khi học SQL cho các bạn"
+            },
+            {
+              "title": "Tạo vs Xóa Database bằng câu truy vấn SQL",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": 480000,
+              "url": "https://youtu.be/DGXCp-iajEg",
+              "content": "Trong bài này chúng ta cùng thực hiện thao tác tạo và xóa các CSDL bằng câu lệnh truy vấn SQL. SQL cơ bản và nâng cao. hướng dẫn học CSDL. create and drop database using sql query in DBMS"
+            },
+            {
+              "title": "Tạo và xóa bảng bằng câu truy vấn SQL",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "660000",
+              "url": "https://youtu.be/l2ODvlsKu5Q",
+              "content": "Trong bài này ta thực hiện tạo bảng và xóa bảng trong database bằng câu lệnh truy vấn sql. create and drop table in db using sql query. Hướng dẫn csdl cơ bản và nâng cao"
+            }
+          ]
+        },
+        {
+          "title": "Thực hành",
+          "steps": [
+            {
+              "title": "Tạo và xóa bảng bằng câu truy vấn SQL",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "660000",
+              "url": "https://youtu.be/l2ODvlsKu5Q",
+              "content": "Trong bài này ta thực hiện tạo bảng và xóa bảng trong database bằng câu lệnh truy vấn sql. create and drop table in db using sql query"
+            },
+            {
+              "title": "Xóa các cột khỏi bảng bằng lệnh ALTER TABLE DROP",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "360000",
+              "url": "https://youtu.be/bJoY5tzcmBI",
+              "content": "Trong bài này chúng ta cùng tìm hiểu và thực hành sử dụng câu lệnh ALTER TABLE DROP để xóa bỏ các cột theo mong muốn khỏi bảng"
+            },
+            {
+              "title": "Đổi tên cột và kiểu dữ liệu bằng lệnh ALTER TABLE",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "660000",
+              "url": "https://youtu.be/hxxiy3fJM0Q",
+              "content": "Trong nội dung bài này chúng ta sẽ thực hiện thao tác đổi tên kiểu dữ liệu và tên cột trong bảng sử dụng lệnh ALTER TABLE MODIFY và ALTER TABLE ALTER COLUMN"
+            },
+            {
+              "title": "Ràng buộc trong SQL",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "360000",
+              "url": "https://youtu.be/3EqQvDU2lDE",
+              "content": "Bài này chúng ta sẽ tìm hiểu về ràng buộc trong sql. nó là gì, dùng như thế nào, gồm những thành phần nào? Hãy cùng nhau tìm hiểu nhé!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Học SQL Cơ Bản",
+      "shortDesc": "Trong phần này mình sẽ giới thiệu những nội dung chính sẽ bao gồm trong danh sách phát của CSDL cơ bản",
+      "content": "Khóa học dành cho\nNhân viên trong nhiều lĩnh vực : Kinh doanh, hành chính, marketing, tài chính, nhân sự ... thường hay sử dụng dữ liệu để phân tích, báo cáo\nCác chuyên gia phân tích cần sử dụng công nghệ để phân tích dữ liệu kinh doanh cho Business Insights và xây dựng báo cáo trực quan\nĐội ngũ quản lý, nhân sự cấp cao và chủ doanh nghiệp biết cách đọc báo cáo Power BI, tìm ra ý nghĩa của các báo cáo dữ liệu để đưa ra các quyết định kinh doanh phù hợp\nCác bạn sinh viên, người đi làm có nhu cầu tìm hiểu và nâng cao kiến thức",
+      "background": "https://fptcloud.com/wp-content/uploads/2021/12/Untitled-3-01.jpg",
+      "categoryPath": "database",
+      "level": "Cơ bản",
+      "tags": ["Web", "WebAPI", "ExpressJS"],
+      "gains": ["Kiến thức căn bản về SQL"],
+      "modules": [
+        {
+          "title": "Mở đầu bài học",
+          "steps": [
+            {
+              "title": "Giới thiệu loạt bài SQL căn bản và nâng cao",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "120000",
+              "url": "https://youtu.be/AGVNe9FPH04",
+              "content": ""
+            },
+            {
+              "title": "Cài đặt MySQL Server & MySQL Workbench",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "720000",
+              "url": "https://youtu.be/BYwb50Xbf8s",
+              "content": "Hướng dẫn cài đặt bộ công cụ MySQL server community miễn phí và công cụ MySQL Workbench"
+            },
+            {
+              "title": "Cài đặt Microsoft SQL Server 2019",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": 480000,
+              "url": "https://youtu.be/WZZkDdklVlk",
+              "content": "Hướng dẫn cài đặt MS SQL Server 2019 chi tiết. how to install ms sql server 2019 on window"
+            }
+          ]
+        },
+        {
+          "title": "Kiến thức cơ sở lý thuyết",
+          "steps": [
+            {
+              "title": "CSDL quan hệ và Hệ quản trị CSDL",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "360000",
+              "url": "https://youtu.be/InUDwfsGG4A",
+              "content": "Phân biệt khái niệm CSDL và hệ quản trị CSDL. bài này sẽ cung cấp khái niệm cơ bản đầu tiên về csdl và dbms. Tiếp đó là minh họa về ứng dụng và hình ảnh cụ thể của CSDL trong ứng dụng. đồng thời cung cấp nguồn thông tin tham khảo đáng tin cậy khi học SQL cho các bạn"
+            },
+            {
+              "title": "Tạo vs Xóa Database bằng câu truy vấn SQL",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": 480000,
+              "url": "https://youtu.be/DGXCp-iajEg",
+              "content": "Trong bài này chúng ta cùng thực hiện thao tác tạo và xóa các CSDL bằng câu lệnh truy vấn SQL. SQL cơ bản và nâng cao. hướng dẫn học CSDL. create and drop database using sql query in DBMS"
+            },
+            {
+              "title": "Tạo và xóa bảng bằng câu truy vấn SQL",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "660000",
+              "url": "https://youtu.be/l2ODvlsKu5Q",
+              "content": "Trong bài này ta thực hiện tạo bảng và xóa bảng trong database bằng câu lệnh truy vấn sql. create and drop table in db using sql query. Hướng dẫn csdl cơ bản và nâng cao"
+            }
+          ]
+        },
+        {
+          "title": "Thực hành",
+          "steps": [
+            {
+              "title": "Tạo và xóa bảng bằng câu truy vấn SQL",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "660000",
+              "url": "https://youtu.be/l2ODvlsKu5Q",
+              "content": "Trong bài này ta thực hiện tạo bảng và xóa bảng trong database bằng câu lệnh truy vấn sql. create and drop table in db using sql query"
+            },
+            {
+              "title": "Xóa các cột khỏi bảng bằng lệnh ALTER TABLE DROP",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "360000",
+              "url": "https://youtu.be/bJoY5tzcmBI",
+              "content": "Trong bài này chúng ta cùng tìm hiểu và thực hành sử dụng câu lệnh ALTER TABLE DROP để xóa bỏ các cột theo mong muốn khỏi bảng"
+            },
+            {
+              "title": "Đổi tên cột và kiểu dữ liệu bằng lệnh ALTER TABLE",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "660000",
+              "url": "https://youtu.be/hxxiy3fJM0Q",
+              "content": "Trong nội dung bài này chúng ta sẽ thực hiện thao tác đổi tên kiểu dữ liệu và tên cột trong bảng sử dụng lệnh ALTER TABLE MODIFY và ALTER TABLE ALTER COLUMN"
+            },
+            {
+              "title": "Ràng buộc trong SQL",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "360000",
+              "url": "https://youtu.be/3EqQvDU2lDE",
+              "content": "Bài này chúng ta sẽ tìm hiểu về ràng buộc trong sql. nó là gì, dùng như thế nào, gồm những thành phần nào? Hãy cùng nhau tìm hiểu nhé!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Học SQL Cơ Bản - Phần 2",
+      "shortDesc": "Trong phần này mình sẽ giới thiệu những nội dung chính sẽ bao gồm trong danh sách phát của CSDL cơ bản - Phần 2",
+      "content": "Khóa học dành cho\nNhân viên trong nhiều lĩnh vực : Kinh doanh, hành chính, marketing, tài chính, nhân sự ... thường hay sử dụng dữ liệu để phân tích, báo cáo\nCác chuyên gia phân tích cần sử dụng công nghệ để phân tích dữ liệu kinh doanh cho Business Insights và xây dựng báo cáo trực quan\nĐội ngũ quản lý, nhân sự cấp cao và chủ doanh nghiệp biết cách đọc báo cáo Power BI, tìm ra ý nghĩa của các báo cáo dữ liệu để đưa ra các quyết định kinh doanh phù hợp\nCác bạn sinh viên, người đi làm có nhu cầu tìm hiểu và nâng cao kiến thức",
+      "background": "https://fptcloud.com/wp-content/uploads/2021/12/Untitled-3-01.jpg",
+      "categoryPath": "database",
+      "level": "Cơ bản",
+      "tags": ["Web", "WebAPI", "ExpressJS"],
+      "gains": ["Kiến thức căn bản về SQL"],
+      "modules": [
+        {
+          "title": "Các câu lệnh trong SQL",
+          "steps": [
+            {
+              "title": "Ràng buộc NOT NULL.",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "780000",
+              "url": "https://youtu.be/-tZgn1oDdYs",
+              "content": "Trong bài này chúng ta sẽ tìm hiểu về ràng buộc not null trong SQL. Học SQL cơ bản cho người mới bắt đầu"
+            },
+            {
+              "title": "Ràng buộc UNIQUE trong Mysql",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "600000",
+              "url": "https://youtu.be/nt2-2rtyQ2I",
+              "content": "Trong bài này chúng ta sẽ tìm hiểu về ý nghĩa ràng buộc UNIQUE và các thao tác có thể thực hiện với ràng buộc này"
+            },
+            {
+              "title": "Ràng buộc PRIMARY KEY trong SQL Server",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "660000",
+              "url": "https://youtu.be/w7B5pyzViXw",
+              "content": "Trong bài này chúng ta sẽ tìm hiểu và thực hành sử dụng ràng buộc primary key để tạo khóa chính cho bảng khi tạo bảng bằng lệnh truy vấn sql, đồng thời thực hiện tạo khóa, loại bỏ khóa, đặt tên cho khóa chính thông qua lệnh alter table create constraint và drop constraint"
+            }
+          ]
+        },
+        {
+          "title": "Các kiến thức về ràng buộc SQL",
+          "steps": [
+            {
+              "title": "Ràng buộc PRIMARY KEY trong SQL Server",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "660000",
+              "url": "https://youtu.be/w7B5pyzViXw",
+              "content": "Trong bài này chúng ta sẽ tìm hiểu và thực hành sử dụng ràng buộc primary key để tạo khóa chính cho bảng khi tạo bảng bằng lệnh truy vấn sql, đồng thời thực hiện tạo khóa, loại bỏ khóa, đặt tên cho khóa chính thông qua lệnh alter table create constraint và drop constraint"
+            },
+            {
+              "title": "Ràng buộc PRIMARY KEY vs MySQL",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "720000",
+              "url": "https://youtu.be/qek1Vjpy8Cs",
+              "content": "Trong bài này chúng ta sẽ tìm hiểu ràng buộc Primary key - khóa chính trong mysql. Dùng ràng buộc khóa chính để làm gì? khi nào sử dụng ràng buộc primary key? có những thao tác nào có thể thực hiện với ràng buộc primary key? sử dụng primary key trong alter table add và alter table drop"
+            },
+            {
+              "title": "Ràng buộc FOREIGN KEY trong SQL Server",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "720000",
+              "url": "https://youtu.be/-V97FqP5jMI",
+              "content": "Trong bài này chúng ta sẽ tìm hiểu khái niệm, mục đích sử dụng của foreign key và thực hành thao tác liên quan tới khóa ngoại trong sql server. Học SQL cơ bản và nâng cao"
+            }
+          ]
+        },
+        {
+          "title": "Các câu lệnh khác",
+          "steps": [
+            {
+              "title": "Trường AUTO INCREMENT",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "780000",
+              "url": "https://youtu.be/tMO75bh_sEg",
+              "content": "Trong bài này chúng ta sẽ tìm hiểu về trường Auto increment và lợi ích của nó. Sử dụng nó với mục đích gì? khi nào sử dụng?"
+            },
+            {
+              "title": "Chèn dữ liệu vào bảng bằng lệnh INSERT INTO",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "320000",
+              "url": "https://youtu.be/dIpcqPXByiI",
+              "content": "Hướng dẫn lập trình Cơ bản và nâng cao. SQL cơ bản và nâng cao. Học sql hoàn toàn miễn phí và đầy đủ."
+            },
+            {
+              "title": "Lệnh DELETE",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "420000",
+              "url": "https://youtu.be/ZqVbA6HExZA",
+              "content": "Trong bài này chúng ta sẽ tìm hiểu cách sử dụng của câu lệnh delete trong SQL"
+            },
+            {
+              "title": "Truy vấn dữ liệu với lệnh SELECT",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "240000",
+              "url": "https://youtu.be/gSAbLKxMemo",
+              "content": "Trong bài này ta sẽ tìm hiểu cách sử dụng của lệnh SQL select. đây là lệnh dùng để truy vấn dữ liệu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Cấu Trúc Dữ Liệu Và Giải Thuật",
+      "shortDesc": "Đây là nội dung học thuật.",
+      "content": "Đây là nội dung học thuật do chính tôi đã và đang xây dựng. \nNội dung Video cung cấp cho các bạn có đam mê về lập trình các video kiến thức chuyên ngành vô cùng bổ ích. Nội dung tạo ra nhằm mang đến cho các bạn học viên có thể tìm hiểu về ngôn ngữ lập trình C/C++....",
+      "background": "data:image/jpeg;base64,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",
+      "categoryPath": "data-structure",
+      "level": "Mới bắt đầu",
+      "tags": ["OOP", "C#"],
+      "gains": ["Kiến thức về OOP"],
+      "modules": [
+        {
+          "title": "Cấu trúc về OOP",
+          "steps": [
+            {
+              "title": "Khởi tạo cấu trúc danh sách liên kết đơn",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "2940000",
+              "url": "https://youtu.be/EmsZijiq-bY",
+              "content": ""
+            },
+            {
+              "title": "Thêm Node p sau Node q trong danh sách liên kết đơn",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "3600000",
+              "url": "https://youtu.be/zvQzXvm40Pg",
+              "content": ""
+            },
+            {
+              "title": "Thêm Node p trước Node q trong danh sách liên kết đơn",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "3420000",
+              "url": "https://youtu.be/dCNpY72PfSc",
+              "content": ""
+            },
+            {
+              "title": "Thêm phần tử vào vị trí bất kì trong danh sách liên kết đơn",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "2400000",
+              "url": "https://youtu.be/k_E6XIKa8gY",
+              "content": ""
+            },
+            {
+              "title": "Xóa Node đầu và cuối trong danh sách liên kết đơn",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "960000",
+              "url": "https://youtu.be/cyWRKh-R_NQ",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "các thao tác trên Node với OOP",
+          "steps": [
+            {
+              "title": "Xóa 1 Node nằm sau Node q trong danh sách liên kết đơn",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "600000",
+              "url": "https://youtu.be/NVh-PcVFAQE",
+              "content": ""
+            },
+            {
+              "title": "Xóa 1 Node có khóa k bất kỳ trong danh sách liên kết đơn",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "960000",
+              "url": "https://youtu.be/0q6-4y3hSIY",
+              "content": ""
+            },
+            {
+              "title": "Đọc - Ghi file danh sách liên kết đơn sinh viên(Phần 1)",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "2160000",
+              "url": "https://youtu.be/8wHXkXOURtA",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "HTML, CSS từ Zero đến Hero",
+      "shortDesc": "Trong khóa này chúng ta sẽ cùng nhau xây dựng giao diện 2 trang web là The Band & Shopee",
+      "content": "Biết cách xây dựng giao diện web với HTML, CSS\nBiết cách phân tích giao diện website\nBiết cách đặt tên class CSS theo chuẩn BEM\nBiết cách làm giao diện web responsive\nLàm chủ Flexbox khi dựng bố cục website\nSở hữu 2 giao diện web khi học xong khóa học\nBiết cách tự tạo động lực cho bản thân\nBiết cách tự học những kiến thức mới\nHọc được cách làm UI chỉn chu, kỹ tính\nNhận chứng chỉ khóa học do F8 cấp",
+      "background": "https://hocweb.vn/wp-content/uploads/2021/03/course_html_css.png",
+      "categoryPath": "frontend",
+      "level": "Mới bắt đầu",
+      "tags": ["Design", "JavaScript", "Web"],
+      "gains": ["Kiến thức căn bản về HTML, CSS"],
+      "modules": [
+        {
+          "title": "Bắt đầu",
+          "steps": [
+            {
+              "title": "Nhận được gì sau khóa học?",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "190000",
+              "url": "https://youtu.be/R6plN3FvzFY",
+              "content": ""
+            },
+            {
+              "title": "HTML, CSS là gì?",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "150000",
+              "url": "https://youtu.be/zwsPND378OQ",
+              "content": ""
+            },
+            {
+              "title": "Làm quen với Dev tools",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "240000",
+              "url": "https://youtu.be/7BJiPyN4zZ0",
+              "content": ""
+            },
+            {
+              "title": "Cài đặt môi trường",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "180000",
+              "url": "https://youtu.be/ZotVkQDC6mU",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Làm quen với HTML",
+          "steps": [
+            {
+              "title": "Cấu trúc file HTML",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "370000",
+              "url": "https://youtu.be/LYnrFSGLCl8",
+              "content": ""
+            },
+            {
+              "title": "Comments trong HTML",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "130000",
+              "url": "https://youtu.be/JG0pdfdKjgQ",
+              "content": ""
+            },
+            {
+              "title": "Thẻ HTML thông dụng",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "670000",
+              "url": "https://youtu.be/AzmdwZ6e_aM",
+              "content": ""
+            },
+            {
+              "title": "Attribute trong HTML",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "120000",
+              "url": "https://youtu.be/UYpIh5pIkSA",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Làm quen với CSS",
+          "steps": [
+            {
+              "title": "Sử dụng CSS trong HTML",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "430000",
+              "url": "https://youtu.be/NsSsJTg29oE",
+              "content": ""
+            },
+            {
+              "title": "ID và Class",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "250000",
+              "url": "https://youtu.be/4J6d8cr0X48",
+              "content": ""
+            },
+            {
+              "title": "Độ ưu tiên trong CSS",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "630000",
+              "url": "https://youtu.be/AgZ0PX28bnA",
+              "content": ""
+            },
+            {
+              "title": "Đặt biến trong CSS",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "240000",
+              "url": "https://youtu.be/x9fnxVTkpP4",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Node & ExpressJS",
+      "shortDesc": "Học Back-end với Node & ExpressJS framework, hiểu các khái niệm khi làm Back-end và xây dựng RESTful API cho trang web",
+      "content": "Đây là khóa học Node với Express Framework được chia sẻ miễn phí tại Youtube. Mình rất mong muốn được chia sẻ những kiến thức đã tích lũy được trong quá trình làm việc thực tế tới các bạn. Hi vọng các bạn sẽ có thêm đam mê cho việc học lập trình.",
+      "background": "https://funix.edu.vn/wp-content/uploads/2021/09/expressjs-v%C3%A0-nodejs.png",
+      "categoryPath": "backend",
+      "level": "Mới bắt đầu",
+      "tags": ["ExpressJS", "JavaScript", "Web", "WebAPI"],
+      "gains": [
+        "Kiến thức căn bản về Nodejs và Expressjs, từ đó biết cách hiện thực và triển khai hệ thống"
+      ],
+      "modules": [
+        {
+          "title": "Bắt đầu",
+          "steps": [
+            {
+              "title": "Lời khuyên trước khóa học Node Express",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "480000",
+              "url": "https://youtu.be/z2f7RHgvddc",
+              "content": "Những lời khuyên bổ ích giúp cho việc học trở nên dễ dàng hơn"
+            },
+            {
+              "title": "HTTP protocol",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "930001",
+              "url": "https://youtu.be/SdcdneSdoV4",
+              "content": "Các kiến thức căn bản về HTTP protocol giúp cho quá trình phát triển sản phẩm trở nên dễ dàng"
+            },
+            {
+              "title": "Install NodeJS",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "120000",
+              "url": "https://youtu.be/CcSuYLjKW3g",
+              "content": "Các bước cài đặt NodeJS trên Windows và MacOS"
+            },
+            {
+              "title": "Install express",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1080000",
+              "url": "https://youtu.be/tfQXZ8jES6A",
+              "content": "Các bước cài đặt ExpressJS trên Windows và MacOS"
+            },
+            {
+              "title": "Install nodemon & inspector",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "630000",
+              "url": "https://youtu.be/zCFOn4YXr00",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Kiến thức cốt lõi",
+          "steps": [
+            {
+              "title": "Template engine (handlebars)",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1620000",
+              "url": "https://youtu.be/lpbl2qQXbDo",
+              "content": ""
+            },
+            {
+              "title": "Static files & SCSS",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1260000",
+              "url": "https://youtu.be/BxZNiLo-OA0",
+              "content": ""
+            },
+            {
+              "title": "Use boostrap",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "550000",
+              "url": "https://youtu.be/zNLXsTu_kUA",
+              "content": ""
+            },
+            {
+              "title": "Basic routing",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "660000",
+              "url": "https://youtu.be/Wz6WghmEmFk",
+              "content": ""
+            },
+            {
+              "title": "Get method",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "150000",
+              "url": "https://youtu.be/BbBagzvrSto",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Xây dựng Website",
+          "steps": [
+            {
+              "title": "Mô hình MVC",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "345000",
+              "url": "https://youtu.be/N8GhaR7K3tI",
+              "content": ""
+            },
+            {
+              "title": "[MVC] Routes & Controllers",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "2700000",
+              "url": "https://youtu.be/Pd_ZIpCVZPc",
+              "content": ""
+            },
+            {
+              "title": "[Windows] Install Mongodb",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": 480000,
+              "url": "https://youtu.be/5Odp8lcAvyA",
+              "content": ""
+            },
+            {
+              "title": "[MVC] Model",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1920000",
+              "url": "https://youtu.be/uAXpEmTZhfA",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ReactJS 2022",
+      "shortDesc": "Khóa học ReactJS từ cơ bản tới nâng cao, kết quả của khóa học này là bạn có thể làm hầu hết các dự án thường gặp với ReactJS. Cuối khóa học này bạn sẽ sở hữu một dự án giống Tiktok.com, bạn có thể tự tin đi xin việc khi nắm chắc các kiến thức được chia sẻ trong khóa học này",
+      "content": "Hiểu về khái niệm SPA/MPA\nHiểu về khái niệm hooks\nHiểu cách ReactJS hoạt động\nHiểu về function/class component\nBiết cách tối ưu hiệu năng ứng dụng\nThành thạo làm việc với RESTful API\nHiểu rõ ràng Redux workflow\nThành thạo sử dụng Redux vào dự án\nBiết sử dụng redux-thunk middleware\nXây dựng sản phẩm thực tế (clone Tiktok)\nTriển khai dự án React ra Internet\nĐủ hành trang tự tin apply đi xin việc\nBiết cách Deploy lên Github/Gitlab page",
+      "background": "https://mona.media/wp-content/uploads/2021/06/react.png",
+      "categoryPath": "frontend",
+      "level": "Mới bắt đầu",
+      "tags": ["ReactJS", "JavaScript", "Web"],
+      "gains": ["Kiến thức từ cơ bản đến nâng cao về ReactJS"],
+      "modules": [
+        {
+          "title": "Giới thiệu",
+          "steps": [
+            {
+              "title": "ReactJS là gì? Tại sao nên học ReactJS?",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "660000",
+              "url": "https://youtu.be/x0fSBAgBrOQ",
+              "content": ""
+            },
+            {
+              "title": "SPA/MPA là gì?",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1331400",
+              "url": "https://youtu.be/30sMCciFIAM",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Ôn lại ES6",
+          "steps": [
+            {
+              "title": "Arrow function trong Javascript ES6",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": 480000,
+              "url": "https://youtu.be/9QeNLypIiZs",
+              "content": ""
+            },
+            {
+              "title": "Module trong javascript ES6",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "900000",
+              "url": "https://youtu.be/08lWi4T2Bfg",
+              "content": ""
+            },
+            {
+              "title": "Enhanced object literals trong javascript ES6",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "310000",
+              "url": "https://youtu.be/WB6FQdp41hs",
+              "content": ""
+            },
+            {
+              "title": "Spread trong javascript ES6",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "840000",
+              "url": "https://youtu.be/MJZICS7nQk8",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "React, ReactDOM",
+          "steps": [
+            {
+              "title": "document.createElement() để làm gì?",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "600000",
+              "url": "https://youtu.be/Nno-r1Cz_-I",
+              "content": ""
+            },
+            {
+              "title": "Thêm React vào Website? Github, NPMJS, UNPKG là gì?",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "900000",
+              "url": "https://youtu.be/SdphnMywCbo",
+              "content": ""
+            },
+            {
+              "title": "React.createElement() nữa là sao?",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "870000",
+              "url": "https://youtu.be/JN_SxpAujDw",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Lập Trình JavaScript Nâng Cao",
+      "shortDesc": "Hiểu sâu hơn về cách Javascript hoạt động, tìm hiểu về IIFE, closure, reference types, this keyword, bind, call, apply, prototype, ...",
+      "content": "Được học kiến thức miễn phí với nội dung chất lượng hơn mất phí\nCác kiến thức nâng cao của Javascript giúp code trở nên tối ưu hơn\nHiểu được cách tư duy nâng cao của các lập trình viên có kinh nghiệm\nHiểu được các khái niệm khó như từ khóa this, phương thức bind, call, apply & xử lý bất đồng bộ\nCó nền tảng Javascript vững chắc để làm việc với mọi thư viện, framework viết bởi Javascript\nNâng cao cơ hội thành công khi phỏng vấn xin việc nhờ kiến thức chuyên môn vững chắc",
+      "background": "https://4.bp.blogspot.com/--2G-wQ8DFC0/XOYHhowQEbI/AAAAAAAAURI/rcxitxbsE5kIqQ__Yvh_Dirn9iH12bb7ACLcBGAs/s640/js%2Bnang%2Bcao.png",
+      "categoryPath": "frontend",
+      "level": "Nâng cao",
+      "tags": ["Web", "JavaScript"],
+      "gains": [
+        "Kiến thức nâng cao về JavaScript và áp dụng được vào các bài toán thực tế"
+      ],
+      "modules": [
+        {
+          "title": "IIFE, Scope, Closure",
+          "steps": [
+            {
+              "title": "IIFE trong Javascript là gì?",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1440000",
+              "url": "https://youtu.be/N-3GU1F1UBY",
+              "content": ""
+            },
+            {
+              "title": "Scope trong Javascript? Hiểu thật rõ về phạm vi nào!",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "2220000",
+              "url": "https://youtu.be/5N8vz_VmszE",
+              "content": ""
+            },
+            {
+              "title": "Closure trong Javascript có phải là cái gì \"kinh khủng\"?",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "2460001",
+              "url": "https://youtu.be/xtQtGKL0NCI",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Hoisting, Strict Mode, Data Types",
+          "steps": [
+            {
+              "title": "Hoisting trong Javascript? Let, const có được hoisted hay không?",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "660000",
+              "url": "https://youtu.be/3MLhU1DrUxM",
+              "content": ""
+            },
+            {
+              "title": "\"use strict\" hay strict mode trong Javascript?",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "840000",
+              "url": "https://youtu.be/w1W-j4cSPF0",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Responsive Với Grid System",
+      "shortDesc": "Trong khóa này chúng ta sẽ học về cách xây dựng giao diện web responsive với Grid System, tương tự Bootstrap 4",
+      "content": "Biết cách xây dựng website Responsive\nHiểu được tư tưởng thiết kế với Grid system\nTự tay xây dựng được thư viện CSS Grid\nTự hiểu được Grid layout trong bootstrap",
+      "background": "https://i.ytimg.com/vi/ZaZclNNP70U/maxresdefault.jpg",
+      "categoryPath": "frontend",
+      "level": "Cơ bản",
+      "tags": ["Design", "Web"],
+      "gains": ["Kiến thức về Grid System và Bootstrap 4"],
+      "modules": [
+        {
+          "title": "Bắt đầu",
+          "steps": [
+            {
+              "title": "Responsive là gì?",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "620000",
+              "url": "https://youtu.be/uz5LIP85J5Y",
+              "content": ""
+            },
+            {
+              "title": "Sử dụng & cài đặt công cụ",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "240000",
+              "url": "https://youtu.be/CIIYogDrGto",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Viewport, @media, breakpoint",
+          "steps": [
+            {
+              "title": "Khái niệm Viewport",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "330000",
+              "url": "https://youtu.be/XJiq_d0vGCQ",
+              "content": ""
+            },
+            {
+              "title": "Media query (@media)",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1080000",
+              "url": "https://youtu.be/YgkzJkmDP3U",
+              "content": ""
+            },
+            {
+              "title": "Khái niệm Breakpoints?",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "570000",
+              "url": "https://youtu.be/0i37IU0wjlI",
+              "content": "- Breakpoints là những điểm - vị trí mà ở đó sẽ tạo nên những thay đổi về giao diện - bố cục website.\n- Những điểm này thường dùng để xác định kích thước các thiết bị dựa vào độ phân giải màn hình của chúng (VD như PC, Tablet và Mobile).\n- Giao diện - bố cục website sẽ thay đổi và thích ứng với kích thước màn hình của thiết bị, giúp cho người sử dụng có trải nghiệm tốt hơn (dễ hiểu, dễ nhìn, dễ đọc, dễ thao tác, ...)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Lập Trình JavaScript Cơ Bản",
+      "shortDesc": "Học Javascript cơ bản phù hợp cho người chưa từng học lập trình. Với hơn 100 bài học và có bài tập thực hành sau mỗi bài học",
+      "content": "Hiểu chi tiết về các khái niệm cơ bản trong JS\nXây dựng được website đầu tiên kết hợp với JS\nTự tin khi phỏng vấn với kiến thức vững chắc\nCó nền tảng để học các thư viện và framework JS\nNắm chắc các tính năng trong phiên bản ES6\nThành thạo DOM APIs để tương tác với trang web\nGhi nhớ các khái niệm nhờ bài tập trắc nghiệm\nNâng cao tư duy với các bài kiểm tra với testcases\nCác bài thực hành như Tabs, Music Player",
+      "background": "https://anonyviet.com/wp-content/uploads/2018/01/download-1.jpg",
+      "categoryPath": "frontend",
+      "level": "Cơ bản",
+      "tags": ["JavaScript", "Web"],
+      "gains": ["Kiến thức cơ bản tổng hợp về Javascript "],
+      "modules": [
+        {
+          "title": "Biến, comments, built-in",
+          "steps": [
+            {
+              "title": "Khai báo biến",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "240000",
+              "url": "https://youtu.be/CLbx37dqYEI",
+              "content": ""
+            },
+            {
+              "title": "Comments",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "330000",
+              "url": "https://youtu.be/xRpXBEq6TOY",
+              "content": ""
+            },
+            {
+              "title": "Một số hàm built-in",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "470001",
+              "url": "https://youtu.be/rSV33HGotgE",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Toán tử, kiểu dữ liệu",
+          "steps": [
+            {
+              "title": "Toán tử số học",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "330000",
+              "url": "https://youtu.be/m_h7-dgKnMU",
+              "content": ""
+            },
+            {
+              "title": "Kiểu dữ liệu Boolean",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "210000",
+              "url": "https://youtu.be/9cZEG1SSSQc",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Tự Học Data Science Cho Người Mới Bắt Đầu",
+      "shortDesc": "Các kiến thức tổng hợp để trở thành một Data Science",
+      "content": "Chương trình học sẽ chú trọng xây dựng cho bạn những kỹ năng cứng quan trọng nhất để thành công trong ngành Data Analyst như SQL, Python, và Data Visualization. Khi bạn đã quen với những công cụ cơ bản, bạn sẽ được học những phương thức xử lý dữ liệu hiệu quả. Các bộ dữ liệu và case study sử dụng trong chương trình được lấy từ các công ty thật để đảm bảo tính thực tế của chương trình học. Ở cuối khóa học, bạn sẽ tham gia vào Employment Week, một hoạt động bắt buộc dành cho các học viên để chuẩn bị cho quá trình ôn luyện kiến thức và chuẩn bị hồ sơ xin việc hiệu quả.",
+      "background": "https://insight.isb.edu.vn/wp-content/uploads/sites/2/2019/12/VienISB_nganh-data-science-loi-khuyen-1.jpg",
+      "categoryPath": "data-science",
+      "level": "Mới bắt đầu",
+      "tags": ["Data", "AI", "Python"],
+      "gains": [
+        "Kiến thức tổng quan đề Data Science và thực hiện được các Project trong khóa học"
+      ],
+      "modules": [
+        {
+          "title": "Pandas, Numpy",
+          "steps": [
+            {
+              "title": "Làm Quen với Pandas và DataFrame",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "2580000",
+              "url": "https://youtu.be/HPGYTWYM13s",
+              "content": ""
+            },
+            {
+              "title": "Hướng Dẫn Thành Thạo NumPy",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "4620000",
+              "url": "https://youtu.be/1eSmR2EJjYM",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Cài đặt môi trường",
+          "steps": [
+            {
+              "title": "Hướng Dẫn Setup Môi Trường Lập Trình Trí Tuệ Nhân Tạo",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "600000",
+              "url": "https://youtu.be/g5BdrxPhQU0",
+              "content": ""
+            },
+            {
+              "title": "Hướng Dẫn Trực Quan Hoá Dữ Liệu với Matplotlib và Python",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "4080000",
+              "url": "https://youtu.be/Ak7GamuoIr4",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Tự Học Data Science Cho Người Mới Bắt Đầu",
+      "shortDesc": "Các kiến thức tổng hợp để trở thành một Data Science",
+      "content": "Chương trình học sẽ chú trọng xây dựng cho bạn những kỹ năng cứng quan trọng nhất để thành công trong ngành Data Analyst như SQL, Python, và Data Visualization. Khi bạn đã quen với những công cụ cơ bản, bạn sẽ được học những phương thức xử lý dữ liệu hiệu quả. Các bộ dữ liệu và case study sử dụng trong chương trình được lấy từ các công ty thật để đảm bảo tính thực tế của chương trình học. Ở cuối khóa học, bạn sẽ tham gia vào Employment Week, một hoạt động bắt buộc dành cho các học viên để chuẩn bị cho quá trình ôn luyện kiến thức và chuẩn bị hồ sơ xin việc hiệu quả.",
+      "background": "https://insight.isb.edu.vn/wp-content/uploads/sites/2/2019/12/VienISB_nganh-data-science-loi-khuyen-1.jpg",
+      "categoryPath": "data-science",
+      "level": "Mới bắt đầu",
+      "tags": ["Data", "AI", "Python"],
+      "gains": [
+        "Kiến thức tổng quan đề Data Science và thực hiện được các Project trong khóa học"
+      ],
+      "modules": [
+        {
+          "title": "Pandas, Numpy",
+          "steps": [
+            {
+              "title": "Làm Quen với Pandas và DataFrame",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "2580000",
+              "url": "https://youtu.be/HPGYTWYM13s",
+              "content": ""
+            },
+            {
+              "title": "Hướng Dẫn Thành Thạo NumPy",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "4620000",
+              "url": "https://youtu.be/1eSmR2EJjYM",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Cài đặt môi trường",
+          "steps": [
+            {
+              "title": "Hướng Dẫn Setup Môi Trường Lập Trình Trí Tuệ Nhân Tạo",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "600000",
+              "url": "https://youtu.be/g5BdrxPhQU0",
+              "content": ""
+            },
+            {
+              "title": "Hướng Dẫn Trực Quan Hoá Dữ Liệu với Matplotlib và Python",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "4080000",
+              "url": "https://youtu.be/Ak7GamuoIr4",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Tự Học Data Science Cho Người Mới Bắt Đầu - Phần 2",
+      "shortDesc": "Kiến thức tổng quan về Data Science với Matplotlib và Python",
+      "content": "Hôm nay chúng mình xin giới thiệu đến các bạn 1 video mới trong Series \"Tự Học Data Science Cho Người Mới Bắt Đầu\". Và chủ đề của Video hôm này đó chính là \"Hướng Dẫn Trực Quan Hoá Dữ Liệu với Matplotlib và Python\" 🤩 !",
+      "background": "https://itguru.vn/blog/wp-content/uploads/2021/01/tro-thanh-data-scientist.jpg",
+      "categoryPath": "data-science",
+      "level": "Mới bắt đầu",
+      "tags": ["Python", "AI", "Data"],
+      "gains": ["Kiến thức về Matplotlib và Python"],
+      "modules": [
+        {
+          "title": "Tiền xử lý dữ liệu",
+          "steps": [
+            {
+              "title": "Hướng Dẫn Các Bước Tiền Xử Lý Dữ Liệu bằng Scikit-Learn",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "2640000",
+              "url": "https://youtu.be/VsXKtjddXWY",
+              "content": ""
+            },
+            {
+              "title": "Hướng Dẫn Train Mô Hình Machine Learning Cho Người Mới Bắt Đầu",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "2040000",
+              "url": "https://youtu.be/wujyckteVYM",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Introduction",
+          "steps": [
+            {
+              "title": "Hướng Dẫn Lập Trình Kaggle Project Titanic",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "2040000",
+              "url": "https://youtu.be/WeQvO_CIFPA",
+              "content": ""
+            },
+            {
+              "title": "Hướng Dẫn Exploratory Data Analysis - Phân Tích Khám Phá Dữ Liệu Kaggle Project Titanic",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "2490000",
+              "url": "https://youtu.be/SMnv8h7gGp8",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Lập trình C",
+      "shortDesc": "Thông qua những ví dụ đơn giản và rõ ràng, thao tác từng bước chắc chắn các bạn sẽ có thể thực hiện và tự tin hơn trong lập trình C. Các bạn sẽ cần khoảng thời gian khoảng từ 1 đến 2 tháng để có thể hiểu rõ và hoàn tất được khóa học này",
+      "content": "PHẦN 1. CÀI ĐẶT VÀ GIỚI THIỆU KIẾN THỨC CƠ BẢN \nPHẦN 2. NHẬP VÀ XUẤT DỮ LIỆU\nPHẦN 3.  CÁC PHÉP TOÁN VÀ THƯ VIỆN CƠ BẢN\nPHẦN 4.  CÂU LỆNH ĐIỀU KIỆN\nPHẦN 5.  VÒNG LẶP\nPHẦN 6.  MẢNG 1 CHIỀU\nPHẦN 7.  MẢNG 2 CHIỀU\nPHẦN 8.  CON TRỎ\nPHẦN 9.  XỬ LÝ CHUỖI\nPHẦN 10.  KIỂU DỮ LIỆU STRUCT\nPHẦN 11.  LÀM VIỆC VỚI FILE",
+      "background": "",
+      "categoryPath": "common-course",
+      "level": "Mới bắt đầu",
+      "tags": ["C#", "OOP"],
+      "gains": ["Kiến thức lập trình cơ bản - lập trình C"],
+      "modules": [
+        {
+          "title": "Giới thiệu cơ bản",
+          "steps": [
+            {
+              "title": "Giới thiệu cơ bản về lập trình C - Chạy chương trình C trên Dev C++",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "390000",
+              "url": "https://youtu.be/mxMGiGbMrXc",
+              "content": ""
+            },
+            {
+              "title": "Kiểu dữ liệu và cách khai báo biến trong lập trình C",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "580000",
+              "url": "https://youtu.be/oWnQHqarKXU",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Thao tác với dữ liệu",
+          "steps": [
+            {
+              "title": "Cách xuất dữ liệu ra màn hình lập trình C - Hàm printf",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "880000",
+              "url": "https://youtu.be/0gl3uzdAV4E",
+              "content": ""
+            },
+            {
+              "title": "Cách nhập dữ liệu từ bàn phím trong lập trình C",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1000000",
+              "url": "https://youtu.be/fdbdie2u3BM",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Hướng dẫn học FIGMA 2020 thiết kế UX/UI Căn Bản",
+      "shortDesc": "Hướng dẫn học và làm chủ FIGMA cho người mới bắt đầu. Cho những ai muốn trở thành một UX, UI. Khóa học sẽ giúp bạn làm chủ được phần mềm, các công cụ cách làm việc và kĩ năng trong thiết kế UI, UX...",
+      "content": "Khóa học Thiết kế UX/UI này phù hợp với các bạn mới bắt đầu, hoặc các bạn chuyển qua UX/UI từ Graphic Design.\nKhóa học cũng phù hợp với các bạn có nền tảng từ Business Analyst, Project Manager, Product Manager, Product Owner, Digital Product Marketer, Copywriter, Developer... muốn phát triển tư duy và kỹ năng thiết kế UI/UX để chuyển ngành hoặc hỗ trợ cho công việc hiện tại",
+      "background": "https://cdn.sforum.vn/sforum/wp-content/uploads/2021/12/FIGMA-bg.jpg",
+      "categoryPath": "ux-ui",
+      "level": "Mới bắt đầu",
+      "tags": ["Design"],
+      "gains": ["Kiến thức tổng quan về UX/UI"],
+      "modules": [
+        {
+          "title": "Mở đầu",
+          "steps": [
+            {
+              "title": "Giới thiệu giao diện người dùng Website và Desktop Thiết Kế UX/UI App với FIGMA",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "730000",
+              "url": "https://youtu.be/fAAHMwa8Q1o",
+              "content": ""
+            },
+            {
+              "title": "Làm việc với Move, Scale, Frame và Slice Tool",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "870000",
+              "url": "https://youtu.be/KtdKvSa9Uc8",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Các công cụ trong Figma",
+          "steps": [
+            {
+              "title": "Draw Vector Shapes và Pen Tool",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "900000",
+              "url": "https://youtu.be/f-hXMC13udc",
+              "content": ""
+            },
+            {
+              "title": "Làm việc với Text, Hand Tool và Comment",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "840000",
+              "url": "https://youtu.be/EY-OC81b17U",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Học trí tuệ nhân tạo AI",
+      "shortDesc": "Tổng quan về trí tuệ nhân tạo | Học trí tuệ nhân tạo AI Trong video này, mình có tham khảo tài liệu của Thầy Phạm Minh Tuấn - Trường Đại Học Bách Khoa Đà Nẵng Lý thuyết trí tuệ nhân tạo, bài giảng trí tuệ nhân tạo, học trí tuệ nhân tạo cơ bản,  giải bài tập môn trí tuệ nhân tạo, code realtime, colab, python",
+      "content": "Phần 1: Giới thiệu về AI\nPhần 2: Tiền xử lý dữ liệu\nPhần 3: Trích chọn đặc trưng\nPhần 4: Xây dựng mô hình dự đoán\nPhần 5: Đánh giá mô hình",
+      "background": "https://cdn.tgdd.vn/Files/2018/09/14/1117277/tri-tue-nhan-tao-ai-la-gi-ung-dung-nhu-the-nao-trong-cuoc-song--8.jpg",
+      "categoryPath": "ai",
+      "level": "Cơ bản",
+      "tags": ["AI", "Data", "Xử lý ảnh", "Python"],
+      "gains": [
+        "Hiểu sâu hơn cách AI vận hành và ứng dụng tiềm năng của trí thông minh nhân tạo. Biết cách xây dựng một mô hình AI có ứng dụng trong thực tế. Được làm việc trong môi trường quốc tế."
+      ],
+      "modules": [
+        {
+          "title": "Tổng quan",
+          "steps": [
+            {
+              "title": "Tổng quan Trí tuệ nhân tạo AI",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1500000",
+              "url": "https://youtu.be/9t1IsxTeyHQ",
+              "content": ""
+            },
+            {
+              "title": "Python cơ bản cho AI (phần 1)",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1500001",
+              "url": "https://youtu.be/MpppDoAWDdA",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Các thuật toán AI",
+          "steps": [
+            {
+              "title": "Thuật toán Uniform cost search",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1860000",
+              "url": "https://youtu.be/11xhp8Ec3zE",
+              "content": ""
+            },
+            {
+              "title": "Thuật toán Best first search",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1590000",
+              "url": "https://youtu.be/t95XLNhS6IQ",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Quản trị Linux siêu tốc",
+      "shortDesc": "Khóa học đào tạo các kiến thức cơ bản và nâng cao về Linux và quản trị hệ thống mã nguồn mở Linux",
+      "content": "Cách cài đặt hệ điều hành Linux\nCác dòng lệnh cơ bản\nRecovery Password\nQuản lý ứng dụng Linux\n...",
+      "background": "https://cdn.sforum.vn/sforum/wp-content/uploads/2021/09/00-Linux.png",
+      "categoryPath": "system-managenent",
+      "level": "Cơ bản",
+      "tags": ["Web Service"],
+      "gains": [
+        "Sử dụng thành thạo các dòng lệnh Linux. Quản trị server hệ điều hành Linux. Quản lý người dùng, ứng dụng trên Linux"
+      ],
+      "modules": [
+        {
+          "title": "Giới thiệu tổng quan",
+          "steps": [
+            {
+              "title": "Giới thiệu về khóa học",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "130000",
+              "url": "https://youtu.be/yNsrOPs2oG8",
+              "content": ""
+            },
+            {
+              "title": "Lịch sử hệ điều hành Linux",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "120000",
+              "url": "https://youtu.be/rS77pSkauY4",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Các thao tác trên hệ thống Linux",
+          "steps": [
+            {
+              "title": "Thiết lập môi trường Linux",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "360000",
+              "url": "https://youtu.be/K8_cDsjdNDw",
+              "content": ""
+            },
+            {
+              "title": "Đăng nhập vào Linux",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "150000",
+              "url": "https://youtu.be/on6BHlIs_tY",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Khóa Học An Ninh Mạng",
+      "shortDesc": "Tài liệu học tập được cung cấp đầy đủ, miễn phí và cập nhật hóa theo công nghệ mới chuẩn quốc tế của các hãng như Microsoft, Cisco, Linux LPI, Security+, CEH,…",
+      "content": "QUẢN TRỊ MẠNG\nQUẢN TRỊ HỆ THỐNG MẠNG\nBẢO MẬT MẠNG\nXÂY DỰNG VÀ QUẢN TRỊ WEBSITE\nWEB THƯƠNG MẠI ĐIỆN TỬ VÀ BẢO MẬT WEB\nQUẢN TRỊ VIÊN HỆ THỐNG CLOUD\nĐỒ ÁN CUỐI KHÓA CHUYÊN GIA AN NINH MẠNG AN2S",
+      "background": "https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/04/22/cybersecurity_1.jpg",
+      "categoryPath": "security",
+      "level": "Cơ bản",
+      "tags": ["Web", "Web Service"],
+      "gains": ["Kiến thức từ cơ bản đến nâng cao về an ninh mạng"],
+      "modules": [
+        {
+          "title": "Kiến thức tổng quan",
+          "steps": [
+            {
+              "title": "Hướng dẫn collect e-mail để forensic",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "660000",
+              "url": "https://youtu.be/pNbTrUGzBIU",
+              "content": ""
+            },
+            {
+              "title": "Bài thực hành sử dụng nmap để quét các lỗ hổng mạng",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1180000",
+              "url": "https://youtu.be/U84hD8R4wU8",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Backtrack 5",
+          "steps": [
+            {
+              "title": "Hướng dẫn cài đặt Backtrack 5",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "630000",
+              "url": "https://youtu.be/DUtr0naQN2U",
+              "content": ""
+            },
+            {
+              "title": "Hướng dẫn sử dụng Nessus",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "900000",
+              "url": "https://youtu.be/OIQkNBC2PqU",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Unity",
+      "shortDesc": "KHOÁ HỌC LẬP TRÌNH GAME UNITY gồm 2 phần: GAME 2D và GAME 3D, bạn đang được xem phần GAME 2D",
+      "content": "- Tự lập trình được game 2D & 3D chạy trên tất cả các dòng máy iOS, Android, Windows Phone & Trình duyệt web\n- Tự xây dựng hệ thống game 2D để kiếm tiền với quảng cáo AdMob\n- Nếu chăm chỉ luyện tập, có thể lập nhóm/team & Studio làm Game.\n- Đặc biệt, học viên sẽ nắm được kỹ thuật tự xây dựng các nhân vật, kỹ thuật tạo chuyển động 3D theo như ý của mình mà không cần bất kì một thư viện hỗ trợ nào.\n- Tự mình xây dựng được thể loại game 3D Online thời gian thực nhiều người chơi.",
+      "background": "https://ecdn.game4v.com/g4v-content/uploads/2021/02/unity-11.jpg",
+      "categoryPath": "game",
+      "level": "Mới bắt đầu",
+      "tags": ["Unity"],
+      "gains": ["Kiến thức tổng quan về Unity"],
+      "modules": [
+        {
+          "title": "Tổng quan Unity",
+          "steps": [
+            {
+              "title": "Tổng quan về Unity",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "300000",
+              "url": "https://youtu.be/CWiNTvimohU",
+              "content": ""
+            },
+            {
+              "title": "Mảng (Arrays)",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "460000",
+              "url": "https://youtu.be/g1rbwMTYr4Q",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Các phương thức trong Unity",
+          "steps": [
+            {
+              "title": "Lớp và đối tượng (Classes and Objects)",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "630000",
+              "url": "https://youtu.be/MaVw_2TdLnU",
+              "content": ""
+            },
+            {
+              "title": "Kế Thừa (Inheritance)",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "220000",
+              "url": "https://youtu.be/2K0QgvywkVM",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Lập trình Android cơ bản",
+      "shortDesc": "Serial dành cho những bạn đã có kiến thức cơ bản về lập trình java, hoặc những bạn mất căn bản muốn lấy lại kiến thức nền tảng Android. Nội dung Serial này được phân tách chi tiết nhất có thể, nhằm giúp các bạn dễ hiểu và thực hành được ngay.",
+      "content": "Nắm vững kiến thức nền tảng về Android để học những khóa chuyên sâu hơn \nNắm vững các coding convention, naming convention\nThành thạo các thao tác lập trình trên android studio\nBiết cách tìm ra lỗi và gỡ lỗi trong lập trình\nVà còn nhiều thứ khác chờ các bạn khám phá",
+      "background": "https://imic.edu.vn/Contents/img/IMIC-Technology-hoc-lap-trinh-android-co-ban.png",
+      "categoryPath": "mobile",
+      "level": "Cơ bản",
+      "tags": ["React Native", "Android"],
+      "gains": ["Thành thạo các thao tác lập trình trên android studio"],
+      "modules": [
+        {
+          "title": "Giới thiệu tổng quan",
+          "steps": [
+            {
+              "title": "Giới thiệu Android",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "900000",
+              "url": "https://youtu.be/rcH4NbngPEk",
+              "content": ""
+            },
+            {
+              "title": "Chức năng cơ bản của Android Studio",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1800000",
+              "url": "https://youtu.be/80ayldnOsSI",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Các thao tác với máo ảo Android",
+          "steps": [
+            {
+              "title": "Cài đặt máy ảo Android",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "18100000",
+              "url": "https://youtu.be/QQk0PhOxMV4",
+              "content": ""
+            },
+            {
+              "title": "Cách debug cơ bản",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1350000",
+              "url": "https://youtu.be/v2WKdvG2TUA",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Hướng dẫn căn bản sử dụng Unreal Engine 4/ Unreal Engine 5",
+      "shortDesc": "Trong clip này mình sẽ hướng dẫn cách tải Unreal Engine và cách sử dụng cơ bản",
+      "content": "Cách sử dụng Unreal Engine 4 và 5",
+      "background": "https://phongvu.vn/cong-nghe/wp-content/uploads/2022/04/unreal-engine-5-1.png",
+      "categoryPath": "game",
+      "level": "Cơ bản",
+      "tags": ["Unreal Engine 4"],
+      "gains": ["Biết cách sử dụng Unreal Engine 4 và 5"],
+      "modules": [
+        {
+          "title": "Giới thiệu",
+          "steps": [
+            {
+              "title": "Tại sao chọn Unreal Engine, tổng quát và cách sử dụng căn bản ",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "840000",
+              "url": "https://youtu.be/TFpG9yrVvqo",
+              "content": ""
+            },
+            {
+              "title": "Các thuật ngữ căn bản trong Unreal, khái quát về Blueprint",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "480000",
+              "url": "https://youtu.be/j6fz9i3MY98",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Kiến thức cơ bản",
+          "steps": [
+            {
+              "title": "Các thao tác trên Unreal Engine",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "930000",
+              "url": "https://youtu.be/8br34lZsWzE",
+              "content": ""
+            },
+            {
+              "title": "Công cụ chỉnh sửa hình học nâng cao, tô điểm cho căn nhà",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "500001",
+              "url": "https://youtu.be/tOI8fB-IVCU",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Nextjs cơ bản (2021)",
+      "shortDesc": "NextJs là một Framework nhỏ gọn được xây dựng dựa trên ReactJs, Webpack và Babel giúp chúng ta xây dựng ứng dụng Server Side Rendering kết hợp với ReactJs một cách dễ dàng và nhanh chóng",
+      "content": "Khoá học lập trình Server Side Rendering với NextJs Framework ngoài cung cấp các kiến thức trọng tâm là NextJs, học viên cũng sẽ được tìm hiểu thêm các kiến thức vệ tinh khác xung quanh ví dụ như React, React Hooks, Typescript và một chút tư duy lập trình phía Server với vai trò như Back End Developer để xây dựng API.\nKhông chỉ học về lý thuyết được cung cấp bởi tài liệu gốc trên trang chủ của NextJs. Học viên còn được giới thiệu cách áp dụng kiến thức đó vào rất nhiều tình huống xử lí khó trong dự án thực tế. ",
+      "background": "https://www.imaginarycloud.com/blog/content/images/2021/12/nextjs-vs-react.jpg",
+      "categoryPath": "frontend",
+      "level": "Mới bắt đầu",
+      "tags": ["NestJS", "JavaScript", "Web"],
+      "gains": [
+        "Kiến thức cần trang bị trước để có thể theo dõi khóa học này là Javascript cơ bản và ReactJs cơ bản (nếu các bạn đã học qua khóa ReactJS và TypeScript tại ZendVN thì rất thuận tiện). Bởi vì NextJs được tạo ra dựa trên ReactJs, do đó chúng ta cũng sẽ học được rất nhiều kĩ thuật hay và khó trong khóa học để hiện thực ứng dụng với ReactJs, đặc biệt khóa học sẽ áp dụng 100% React Hooks vào dự án thực tế. Cũng như là có chương học riêng để các bạn nào chưa vững ReactJs có thể ôn tập lại về React Hooks."
+      ],
+      "modules": [
+        {
+          "title": "Thiết lập Nextjs",
+          "steps": [
+            {
+              "title": "Giới thiệu về Nextjs",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": 480000,
+              "url": "https://youtu.be/D4p-SR4rOUU",
+              "content": ""
+            },
+            {
+              "title": "Cài đặt Nextjs app",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "320001",
+              "url": "https://youtu.be/ipC7jklpsnk",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Các thuộc tính trong Nextjs",
+          "steps": [
+            {
+              "title": "Thiết lập Pages và Routing",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "500000",
+              "url": "https://youtu.be/6HnB57vxD7c",
+              "content": ""
+            },
+            {
+              "title": "Tạo Navbar và Footer component",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "210000",
+              "url": "https://youtu.be/3CPy7RcYbEM",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Học VueJS 2 cơ bản",
+      "shortDesc": "Vue.js là một framework có sự gắn bó rất mật thiết với Laravel. Nay nhân dịp đầu năm công việc không quá bộn bề, quyết tâm tổ chức lại kiến thức Vue.js giúp các anh/chị/em mới làm quen với lập trình ứng dụng web rút ngắn thời gian làm chủ framework Javascript đang cực hot này",
+      "content": "Vue.js đang trở thành một framework Javascript được nhiều người nghiên cứu và áp dụng do nó khá dễ dàng trong hiểu và học tập. Với tốc độ xử lý nhanh, các câu lệnh đơn giản dễ học Vue.js hứa hẹn trở thành framework thay thế cho jQuery",
+      "background": "https://allaravel.com/storage/app/uploads/public/5cf/90b/fed/5cf90bfed0339393843751.jpg",
+      "categoryPath": "frontend",
+      "level": "Mới bắt đầu",
+      "tags": ["VueJS", "JavaScript", "PHP"],
+      "gains": ["Kiến thức tổng quan về VueJS"],
+      "modules": [
+        {
+          "title": "Giới thiệu về VueJS",
+          "steps": [
+            {
+              "title": "Giới thiệu về Vue JS và yêu cầu cho khóa học",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "540000",
+              "url": "https://youtu.be/hZcAPYhcEmo",
+              "content": ""
+            },
+            {
+              "title": "Tạo ứng dụng đầu tiên bằng VueJS",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "670001",
+              "url": "https://youtu.be/j9WFsuMhk7M",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Các kỹ thuật trong VueJS",
+          "steps": [
+            {
+              "title": "Kỹ thuật bind và sử dụng trong HTML Tag",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": 480000,
+              "url": "https://youtu.be/CvJXgfrzQ6g",
+              "content": ""
+            },
+            {
+              "title": "Tùy biến đối tượng event trong Vue JS",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "400000",
+              "url": "https://youtu.be/5vD5STHdNyk",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Angular 9 - Hướng dẫn từ căn bản tới nâng cao",
+      "shortDesc": "Angular là một plartform của Google giúp xây dựng Web, Native App cho di động và Desktop trở nên dễ dàng hơn",
+      "content": "Lập trình typescript\nLập trình angular",
+      "background": "https://i0.wp.com/hocjavascript.net/wp-content/uploads/2021/08/Angular-la-gi-Uu-diem-va-nhuoc-diem-cua-Angular-1.jpg",
+      "categoryPath": "frontend",
+      "level": "Cơ bản",
+      "tags": ["Angular", "JavaScript", "Web"],
+      "gains": [
+        "Làm chủ ngôn ngữ lập trình TypeScript. Nền tảng vững chắc để tiếp tục làm việc với các API phía Server"
+      ],
+      "modules": [
+        {
+          "title": "Giới thiệu tổng quan",
+          "steps": [
+            {
+              "title": "Angular 9 - Overview - Giới thiệu tổng quát",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "720000",
+              "url": "https://youtu.be/9ziEFWRIMZg",
+              "content": ""
+            },
+            {
+              "title": "Environment Setup - Cài đặt môi trường",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": 480000,
+              "url": "https://youtu.be/FrgA2HQ-Pmw",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Các thành phần chính",
+          "steps": [
+            {
+              "title": "Component - Thành phần của 1 class",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "630000",
+              "url": "https://youtu.be/KT0hZZenHjo",
+              "content": ""
+            },
+            {
+              "title": "Module - Mô đun",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "170001",
+              "url": "https://youtu.be/-CadcOTwa-E",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Lập trình Python từ cơ bản đến nâng cao",
+      "shortDesc": "Khóa học Python căn bản cung cấp cho học viên những kiến thức nền tảng và kỹ năng cần thiết về lập trình Python, xây dựng ứng dụng game, ứng dụng tính toán sử dụng kiến thức lập trình căn bản, tạo nền tảng vững chắc khi chuyển sang khóa học chuyên sâu về data science như phân tích dữ liệu, học máy v.v...",
+      "content": "Cơ bản về lập trình\nCấu trúc cơ bản\nHàm và Module\nCấu trúc dữ liệu",
+      "background": "https://codelearn.io/CodeCamp/CodeCamp/Upload/Course/cf55489ccd434e8c81c61e6fffc9433f.jpg",
+      "categoryPath": "common-course",
+      "level": "Mới bắt đầu",
+      "tags": ["Python"],
+      "gains": ["Kiến thức tổng quan về Python"],
+      "modules": [
+        {
+          "title": "Giới thiệu về Python",
+          "steps": [
+            {
+              "title": "Giới thiệu về Python, các ứng dụng và một số lưu ý trước khi học Python",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1350000",
+              "url": "https://youtu.be/HvVdgcLl9rc",
+              "content": ""
+            },
+            {
+              "title": "Cài đặt Python và cài đặt môi trường phát triển tích hợp IDE",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1200000",
+              "url": "https://youtu.be/6DqMLtd7YIk",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Các thuộc tính trong Python",
+          "steps": [
+            {
+              "title": "Kiểu dữ liệu, khai báo biến và bản chất lệnh gán biến đến giá trị",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1320000",
+              "url": "https://youtu.be/z-Wx-N1hjWs",
+              "content": ""
+            },
+            {
+              "title": "Đối tượng (Object), cách xác định địa chỉ của đối tượng bằng hàm id()",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1320000",
+              "url": "https://youtu.be/SMqhbLcDh2M",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Học Lập Trình C# Cơ Bản",
+      "shortDesc": "Bạn mới bắt đầu học lập trình? Bạn đang muốn học thêm ngôn ngữ lập trình mới? C# là lựa chọn hoàn hảo để đáp ứng các nhu cầu trên",
+      "content": "Ngôn ngữ C# là một ngôn ngữ mới, cấu trúc rõ ràng, dễ hiểu và dễ học. C# thừa hưởng những ưu việt từ ngôn ngữ Java, C, C++ cũng như khắc phục được những hạn chế của các ngôn ngữ này. C# là ngôn ngữ lập trình hướng đối tượng được phát triển bởi Microsoft, được xây dựng dựa trên C++ và Java.\nKhoá học lần này sẽ mang đến toàn bộ những kiến thức cơ bản về C#. Chào mừng các bạn đã đến với khoá học LẬP TRÌNH C# CƠ BẢN.",
+      "background": "https://1.bp.blogspot.com/-A68mK1-sbnU/XSgl17rQ9VI/AAAAAAAAU6I/IgFS0XKqAi4YaDsWcB8QU09B8Yc0SV2jgCLcBGAs/s1600/c-sharpco%2Bban.jpg",
+      "categoryPath": "common-course",
+      "level": "Mới bắt đầu",
+      "tags": ["C#"],
+      "gains": ["Kiến thức tổng quan về C#"],
+      "modules": [
+        {
+          "title": "Kiểu dữ liệu",
+          "steps": [
+            {
+              "title": "Các kiểu dữ liệu",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "900000",
+              "url": "https://youtu.be/ig4cTunixcM",
+              "content": ""
+            },
+            {
+              "title": "Khai báo, sử dụng các biến",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "730000",
+              "url": "https://youtu.be/e2O3TGGGT7s",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Phép toán",
+          "steps": [
+            {
+              "title": "Các phép toán số học",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "980000",
+              "url": "https://youtu.be/aEhVqoHMO3s?list=PLE1qPKuGSJaANYwZJweIuzceWHCJI8mnE",
+              "content": ""
+            },
+            {
+              "title": "Các toán tử gán",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "700001",
+              "url": "https://youtu.be/MWm6TFuuSJ4",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Lập trình web với ASP.NET MVC",
+      "shortDesc": "Serial dành cho những bạn chưa có bất kỳ kiến thức gì về lập trình, hoặc những bạn mất căn bản muốn lấy lại kiến thức nền tảng ASP.Net MVC 5",
+      "content": "Nắm vững kiến thức nền tảng về ASP.Net MVC 5 để học những khóa chuyên sâu hơn \nNắm vững các coding convention, naming convention\nThành thạo các thao tác lập trình trên visual studio\nBiết cách tìm ra lỗi và gỡ lỗi trong lập trình\nVà còn nhiều thứ khác chờ các bạn khám phá",
+      "background": "https://tedu.com.vn//UploadData/images/mvc.PNG",
+      "categoryPath": "backend",
+      "level": "Mới bắt đầu",
+      "tags": [".Net Core", "C#", "WebAPI", "Web"],
+      "gains": ["Kiến thức về xây dựng API với ASP.NET MVC"],
+      "modules": [
+        {
+          "title": "Giới thiệu",
+          "steps": [
+            {
+              "title": "Giới thiệu ASP.NET MVC",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1140000",
+              "url": "https://youtu.be/M0jdFS4ZyEk",
+              "content": ""
+            },
+            {
+              "title": "Tạo và tương tác giữa Model - View - Controller",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "600000",
+              "url": "https://youtu.be/B36H9eOELgY",
+              "content": ""
+            }
+          ]
+        },
+        {
+          "title": "Các cách hiện thực trong ASP.NET MVC",
+          "steps": [
+            {
+              "title": "Phân trang danh sách dữ liệu",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1080000",
+              "url": "https://youtu.be/XnUbX7i3Rug",
+              "content": ""
+            },
+            {
+              "title": "Tạo Layouts template cho Views",
+              "type": "lesson",
+              "resourceType": "youtube",
+              "time": "1080000",
+              "url": "https://youtu.be/_TQVelWQ_0A",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Node & ExpressJS",
+      "shortDesc": "Học Back-end với Node & ExpressJS framework, hiểu các khái niệm khi làm Back-end và xây dựng RESTful API cho trang web.",
+      "content": "",
+      "background": "https://files.fullstack.edu.vn/f8-prod/courses/6.png",
+      "gains": [
+        "Nắm chắc lý thuyết chung trong việc xây dựng web",
+        "Xây dựng web với Express bằng kiến thức thực tế",
+        "Nắm chắc lý thuyết về API và RESTful API",
+        "Nắm chắc khái niệm về giao thức HTTP",
+        "Học được cách tổ chức code trong thực tế",
+        "Biết cách làm việc với Mongoose, MongoDB trong NodeJS",
+        "Biết cách xây dựng API theo chuẩn RESTful API",
+        "Được chia sẻ lại kinh nghiệm làm việc thực tế",
+        "Hiểu rõ tư tưởng và cách hoạt động của mô hình MVC",
+        "Biết cách deploy (triển khai) website lên internet"
+      ],
+      "tags": ["WebAPI", "JavaScript"],
+      "categoryPath": "backend",
+      "level": "Cơ bản",
+      "modules": [
+        {
+          "title": "Bắt đầu",
+          "steps": [
+            {
+              "title": "Lời khuyên trước khóa học",
+              "type": "lesson",
+              "content": "Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️ Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️",
+              "time": 480000,
+              "resourceType": "youtube",
+              "url": "https://youtu.be/z2f7RHgvddc"
+            },
+            {
+              "title": "HTTP protocol",
+              "type": "lesson",
+              "content": "Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️ Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️",
+              "time": 937000,
+              "resourceType": "youtube",
+              "url": "https://youtu.be/SdcdneSdoV4"
+            },
+            {
+              "title": "SSR & CSR",
+              "type": "lesson",
+              "content": "Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️ Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️",
+              "time": 937000,
+              "resourceType": "youtube",
+              "url": "https://youtu.be/HLEu57iLrRo"
+            },
+            {
+              "title": "Install NodeJS",
+              "type": "lesson",
+              "content": "Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️ Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️",
+              "time": 937000,
+              "resourceType": "youtube",
+              "url": "https://youtu.be/CcSuYLjKW3g"
+            },
+            {
+              "title": "Install express",
+              "type": "lesson",
+              "content": "Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️ Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️",
+              "time": 937000,
+              "resourceType": "youtube",
+              "url": "https://youtu.be/tfQXZ8jES6A"
+            },
+            {
+              "title": "Install nodemon & inspector",
+              "type": "lesson",
+              "content": "Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️ Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️",
+              "time": 937000,
+              "resourceType": "youtube",
+              "url": "https://youtu.be/zCFOn4YXr00"
+            },
+            {
+              "title": "Add git repository",
+              "type": "lesson",
+              "content": "Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️ Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️",
+              "time": 937000,
+              "resourceType": "youtube",
+              "url": "https://youtu.be/f0C9kTOf6IY"
+            },
+            {
+              "title": "Install Morgan",
+              "type": "lesson",
+              "content": "Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️ Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️",
+              "time": 937000,
+              "resourceType": "youtube",
+              "url": "https://youtu.be/seI--u0hSeg"
+            }
+          ]
+        },
+        {
+          "title": "Kiến thức cốt lõi",
+          "steps": [
+            {
+              "title": "Template engine (handlebars)",
+              "type": "lesson",
+              "content": "Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️ Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️",
+              "time": 480000,
+              "resourceType": "youtube",
+              "url": "https://youtu.be/lpbl2qQXbDo"
+            },
+            {
+              "title": "Static files & SCSS",
+              "type": "lesson",
+              "content": "Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️ Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️",
+              "time": 937000,
+              "resourceType": "youtube",
+              "url": "https://youtu.be/BxZNiLo-OA0"
+            },
+            {
+              "title": "Use boostrap",
+              "type": "lesson",
+              "content": "Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️ Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️",
+              "time": 937000,
+              "resourceType": "youtube",
+              "url": "https://youtu.be/zNLXsTu_kU"
+            },
+            {
+              "title": "Basic routing",
+              "type": "lesson",
+              "content": "Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️ Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️",
+              "time": 937000,
+              "resourceType": "youtube",
+              "url": "https://youtu.be/Wz6WghmEmFk"
+            },
+            {
+              "title": "Get method",
+              "type": "lesson",
+              "content": "Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️ Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️",
+              "time": 937000,
+              "resourceType": "youtube",
+              "url": "https://youtu.be/BbBagzvrSto"
+            },
+            {
+              "title": "Query parameters",
+              "type": "lesson",
+              "content": "Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️ Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️",
+              "time": 937000,
+              "resourceType": "youtube",
+              "url": "https://youtu.be/6LdwSrTCmo4"
+            },
+            {
+              "title": "Form default behavior",
+              "type": "lesson",
+              "content": "Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️ Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️",
+              "time": 937000,
+              "resourceType": "youtube",
+              "url": "https://youtu.be/wCF8pIbOOpo"
+            },
+            {
+              "title": "POST method",
+              "type": "lesson",
+              "content": "Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️ Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️",
+              "time": 937000,
+              "resourceType": "youtube",
+              "url": "https://youtu.be/LlfdqnK28Cg"
+            }
+          ]
+        },
+        {
+          "title": "Xây dựng website",
+          "steps": [
+            {
+              "title": "Mô hình MVC",
+              "type": "lesson",
+              "content": "Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️ Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️",
+              "time": 937000,
+              "resourceType": "youtube",
+              "url": "https://youtu.be/N8GhaR7K3tI"
+            },
+            {
+              "title": "[MVC] Routes & Controllers",
+              "type": "lesson",
+              "content": "Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️ Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️",
+              "time": 937000,
+              "resourceType": "youtube",
+              "url": "https://youtu.be/Pd_ZIpCVZPc"
+            },
+            {
+              "title": "[Windows] Install Mongodb",
+              "type": "lesson",
+              "content": "Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️ Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️",
+              "time": 937000,
+              "resourceType": "youtube",
+              "url": "https://youtu.be/5Odp8lcAvyA"
+            },
+            {
+              "title": "[Windows] Install Mongodb",
+              "type": "lesson",
+              "content": "Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️ Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️",
+              "time": 937000,
+              "resourceType": "youtube",
+              "url": "https://youtu.be/2AWBtOvYOXI"
+            },
+            {
+              "title": "[Windows] Install Mongodb",
+              "type": "lesson",
+              "content": "Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️ Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️",
+              "time": 937000,
+              "resourceType": "youtube",
+              "url": "https://youtu.be/gcbMx8owYTg"
+            },
+            {
+              "title": "Prettier - Code formatter",
+              "type": "lesson",
+              "content": "Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️ Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️",
+              "time": 937000,
+              "resourceType": "youtube",
+              "url": "https://youtu.be/kyNyMfRCavg"
+            },
+            {
+              "title": "[MVC] Model",
+              "type": "lesson",
+              "content": "Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️ Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️",
+              "time": 937000,
+              "resourceType": "youtube",
+              "url": "https://youtu.be/uAXpEmTZhfA"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "title": "JavaScript Nâng Cao",
       "shortDesc": "",
       "content": "Hiểu sâu hơn về cách Javascript hoạt động, tìm hiểu về IIFE, closure, reference types, this keyword, bind, call, apply, prototype, ...\n",
-      "background": "https://fullstack.edu.vn/courses/javascript-nang-cao",
+      "background": "https://files.fullstack.edu.vn/f8-prod/courses/12.png",
       "categoryPath": "frontend",
       "level": "Nâng cao",
       "tags": ["JavaScript"],
@@ -583,7 +2693,7 @@
       "title": "F8 Chrome Extension",
       "shortDesc": "Tìm hiểu về chrome extension",
       "content": "",
-      "background": "https://tranquocdai.com/dong-goi-extensions-bat-ky.html",
+      "background": "https://wiki.tino.org/wp-content/uploads/2021/10/word-image-114.png",
       "categoryPath": "frontend",
       "level": "Mới bắt đầu",
       "tags": ["Web", "JavaScript"],
