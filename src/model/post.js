@@ -23,6 +23,10 @@ const PostSchemal = new mongoose.Schema(
       type: String,
       required: false,
     },
+    backgroundUrl: {
+      type: String,
+      required: false,
+    },
     likes: [
       {
         type: mongoose.Schema.Types.ObjectId,

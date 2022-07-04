@@ -4,5 +4,5 @@ export const postValidator = [
     .optional()
     .notEmpty()
     .withMessage("Nội dung bài viết không được để trống"),
-  check("url").optional().isURL().withMessage("URL không hợp lệ"),
+  // check("url").optional().isURL().withMessage("URL không hợp lệ"),
 ];
