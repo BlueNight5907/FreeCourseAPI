@@ -11,9 +11,9 @@ export const getNewFeeds = async (req, res, next) => {
     time = new Date().toISOString();
   }
   const feeds = await Post.find()
-    .where("date")
+    .where("createdAt")
     .lte(time)
-    .sort("-date")
+    .sort("-createdAt")
     .limit(page_size || 10);
 
   return res.json(feeds);
@@ -32,25 +32,28 @@ export const getPost = async (req, res, next) => {
 
 export const addPost = async (req, res, next) => {
   const { user } = req;
-  const { title, description, content, url } = req.body;
+  const { title, description, content, url, backgroundUrl } = req.body;
   const post = new Post({
     creator: user._id,
     title,
     description,
     content,
     url,
+    backgroundUrl,
   });
+  post.url += post._id;
   await post.save();
   return res.json({ post });
 };
 
 export const updatePost = async (req, res, next) => {
   const { post } = req;
-  const { title, description, content, url } = req.body;
+  const { title, description, content, url, backgroundUrl } = req.body;
   post.title = title;
   post.description = description;
   post.content = content;
   post.url = url;
+  post.backgroundUrl = backgroundUrl;
   await post.save();
   return res.json({ post });
 };
