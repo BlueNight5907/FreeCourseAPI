@@ -5,6 +5,7 @@ import * as moduleMethods from "./module.method";
 import LearningProcess from "../../model/learning-process";
 import Account from "../../model/account";
 import { getDataFromAllSettled } from "../../utils/array-utils";
+import Test from "../../model/test";
 
 export const addNewModule = async (req, res, next) => {
   const { course, body } = req;
@@ -24,7 +25,7 @@ export const getAllModules = async (req, res) => {
     })
   );
   return res.json({
-    modules: allModules,
+    modules: getDataFromAllSettled(allModules),
   });
 };
 
@@ -43,18 +44,35 @@ export const editModule = async (req, res) => {
 
 export const deleteModule = async (req, res) => {
   const { module, course } = req;
-  await LearningProcess.updateMany(
-    {
-      "learned.stepId": {
-        $all: module.steps,
+  if (module.steps?.length > 0) {
+    await LearningProcess.updateMany(
+      {
+        "learned.stepId": {
+          $in: [...module.steps.map((e) => e._id)],
+        },
       },
-    },
-    {
-      $pullAll: {
-        favorites: [{ stepId: step._id }],
+      {
+        $pull: {
+          learned: {
+            stepId: {
+              $in: module.steps.map((e) => e._id),
+            },
+          },
+        },
+      }
+    );
+    await Lesson.deleteMany({
+      _id: {
+        $in: [...module.steps.map((e) => e.content)],
       },
-    }
-  );
+    });
+
+    await Test.deleteMany({
+      _id: {
+        $in: [...module.steps.map((e) => e.content)],
+      },
+    });
+  }
   await Module.findByIdAndDelete(module._id);
   course.modules = course.modules.filter(
     (id) => id.toString() !== module._id.toString()
@@ -131,12 +149,16 @@ export const deleteStep = async (req, res) => {
   await LearningProcess.updateMany(
     {
       "learned.stepId": {
-        $all: [step._id],
+        $in: [...module.steps.map((e) => e._id)],
       },
     },
     {
-      $pullAll: {
-        favorites: [{ stepId: step._id }],
+      $pull: {
+        learned: {
+          stepId: {
+            $in: module.steps.map((e) => e._id),
+          },
+        },
       },
     }
   );
@@ -170,7 +192,10 @@ export const addComment = async (req, res) => {
       return item;
     })
   );
-  res.json({ comments: getDataFromAllSettled(comments) });
+  res.json({
+    message: "Thêm bình luận thành công",
+    comments: getDataFromAllSettled(comments),
+  });
 };
 
 export const getAllComment = async (req, res) => {
@@ -194,7 +219,6 @@ export const getAllComment = async (req, res) => {
     })
   );
   res.json({
-    message: "Thêm bình luận thành công",
     comments: getDataFromAllSettled(comments),
   });
 };

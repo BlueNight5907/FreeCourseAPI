@@ -1,4 +1,4 @@
-import accountModel from "../../model/account.js";
+import accountModel, { AccountType } from "../../model/account.js";
 import bcrypt from "bcrypt";
 import { randomBytes } from "crypto";
 import * as authMethod from "../auth/auth.method";
@@ -12,26 +12,30 @@ export const postSignup = async (req, res) => {
   const major = req.body.major;
   const address = req.body.address;
   const desc = req.body.desc;
-  const others = req.body.others;
+  const type = req.body.type;
   const email = req.body.email;
   const password = req.body.password;
   const confirmPassword = req.body.confirmPassword;
   const refreshToken = randomBytes(100).toString("hex");
 
+  const accounType = (await AccountType.findOne({ name: type }))?._id;
+
   if (confirmPassword != password) {
-    res.json("Confirm password does not match");
+    res.status(400).json("Mật khẩu không khớp");
   } else {
     accountModel.findOne({ email: email }, (err, user) => {
       if (err) {
         res.send(err);
       } else if (user) {
-        res.json("User has been already");
+        res.status(400).json("Người dùng đã tồn tại");
       } else {
         const newPassword = bcrypt.hashSync(password, 10);
         user = new accountModel({
           email: email,
           password: newPassword,
           refreshToken: refreshToken,
+          active: true,
+          type: accounType,
         });
         user.userInformation = {};
         user.userInformation.fullName = fullName;
@@ -40,12 +44,11 @@ export const postSignup = async (req, res) => {
         user.userInformation.major = major;
         user.userInformation.address = address;
         user.userInformation.desc = desc;
-        user.userInformation.others = others;
         user.save(function (err) {
           if (err) {
             res.send(err);
           } else {
-            res.json("Signup successfully");
+            res.json("Đăng ký thành công");
           }
         });
       }
@@ -103,21 +106,20 @@ export const putUpdatePassword = async (req, res) => {
   const oldPassword = req.body.oldPassword;
   const newPassword = req.body.newPassword;
   const confirmPassword = req.body.confirmPassword;
-  const { email } = req;
-  const user = await accountModel.findOne({ email: email });
+  const { user } = req;
 
   const isPasswordValid = bcrypt.compareSync(oldPassword, user.password);
   if (!isPasswordValid) {
     return res.status(401).send("Mật khẩu cũ không chính xác.");
   } else if (confirmPassword != newPassword) {
-    return res.status(401).send("Confirm Password không chính xác!");
+    return res.status(401).send("Mật khẩu không khớp!");
   } else {
     user.password = bcrypt.hashSync(newPassword, 10);
     user.save(function (err) {
       if (err) {
         res.send(err);
       } else {
-        res.json("Update Password successfully");
+        res.json("Đổi mật khẩu thành công");
       }
     });
   }

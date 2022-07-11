@@ -1,5 +1,6 @@
 import express from "express";
 import handleValidationResult from "../../common/handleValidationResult.js";
+import { isAuth } from "../../middlewares/auth.middleware.js";
 import * as authController from "./auth.controller.js";
 import {
   loginValidator,
@@ -23,6 +24,7 @@ router.post(
 );
 router.put(
   "/updatePassword",
+  isAuth,
   updatePasswordValidator,
   handleValidationResult,
   authController.putUpdatePassword

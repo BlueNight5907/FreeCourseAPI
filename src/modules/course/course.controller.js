@@ -9,6 +9,11 @@ import { allComment, getLearningProcess } from "./course.method.js";
 import { paginate } from "../../utils/mongoose-utils.js";
 import Lesson from "../../model/lesson.js";
 
+export const getLevels = async (req, res, next) => {
+  const levels = await Level.find({});
+  res.json(levels);
+};
+
 export const createCourse = async (req, res, next) => {
   const title = req.body.title;
   const content = req.body.content;
@@ -106,6 +111,7 @@ export const editCourse = async (req, res) => {
   const category = req.body.category;
   const tags = req.body.tags;
   const gains = req.body.gains;
+  const modules = req.body.modules;
 
   const { course } = req;
 
@@ -118,14 +124,20 @@ export const editCourse = async (req, res) => {
   course.category = category;
   course.tags = tags;
   course.gains = gains;
+  course.modules = modules || course.modules;
 
   course.save((err) => {
     if (err) {
       res.send(err);
     } else {
-      res.send("Update Course Successfully");
+      res.send(course);
     }
   });
+};
+
+export const getCourse = async (req, res) => {
+  const { course } = req;
+  res.send(course);
 };
 
 export const deleteCourse = async (req, res) => {
@@ -197,7 +209,7 @@ export const learningProcess = async (req, res) => {
   const { user } = req;
   const { courseId } = req.params;
   let process = await LearningProcess.findOne({
-    userId: user._id,
+    accountId: user._id,
     courseId: courseId,
   });
   process = await getLearningProcess(process);
@@ -242,6 +254,28 @@ export const addComment = async (req, res, next) => {
       next(err);
     } else {
       res.json({ message: "Thêm bình luận thành công" });
+    }
+  });
+};
+
+export const ratingCourse = async (req, res, next) => {
+  const { user, course } = req;
+  const { point } = req.body;
+  const rates = course.rates;
+  const index = rates.findIndex((item) => item.accountId === user._id);
+  if (index < 0) {
+    course.rates.push({
+      accountId: user._id,
+      point: point,
+    });
+  } else {
+    course.rates[index].point = point;
+  }
+  await course.save((err) => {
+    if (err) {
+      next(err);
+    } else {
+      res.json({ message: "Rating thành công" });
     }
   });
 };

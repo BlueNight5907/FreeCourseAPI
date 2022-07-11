@@ -16,8 +16,8 @@ import { courseValidator } from "./validator/course.validator.js";
 
 const router = express.Router();
 
+router.get("/levels", controller.getLevels);
 router.get("/me", controller.myCourses);
-
 router.get("/created-by-me", controller.myCreatedCourses);
 router.get(
   "/:courseId/learning-process",
@@ -34,6 +34,13 @@ router.post(
   commentValidator,
   handleValidationResult,
   controller.addComment
+);
+
+router.post(
+  "/:courseId/rating",
+  existCourse,
+  isJoined,
+  controller.ratingCourse
 );
 
 router.delete(
@@ -66,6 +73,8 @@ router.delete(
   canModifiedCourse,
   controller.deleteCourse
 );
+router.get("/:courseId", existCourse, controller.getCourse);
+
 router.post(
   "/join/:courseId",
   existCourse,
