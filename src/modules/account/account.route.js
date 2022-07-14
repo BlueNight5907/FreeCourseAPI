@@ -1,7 +1,10 @@
 import express from "express";
 import handleValidationResult from "../../common/handleValidationResult";
 import { isAdmin, isAuth } from "../../middlewares/auth.middleware";
-import { userValidator } from "../auth/validators/auth.validator";
+import {
+  editUserValidator,
+  userValidator,
+} from "../auth/validators/auth.validator";
 //import { route } from "express";
 import * as accountController from "./account.controller";
 
@@ -10,7 +13,7 @@ const router = express.Router();
 router.put(
   "/edit",
   isAuth,
-  userValidator,
+  editUserValidator,
   handleValidationResult,
   accountController.putEditAccount
 );

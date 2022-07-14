@@ -8,6 +8,8 @@ export const putEditAccount = async (req, res) => {
   const major = req.body.major;
   const address = req.body.address;
   const desc = req.body.desc;
+  const sid = req.body.sid;
+  const background = req.body.background;
   const others = req.body.others;
 
   const { user } = req;
@@ -15,7 +17,9 @@ export const putEditAccount = async (req, res) => {
   user.userInformation = {};
   user.userInformation.fullName = fullName;
   user.userInformation.avatar = avatar;
+  user.userInformation.background = background;
   user.userInformation.birthDay = birthDay;
+  user.userInformation.sid = sid;
   user.userInformation.major = major;
   user.userInformation.address = address;
   user.userInformation.desc = desc;

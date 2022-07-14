@@ -13,6 +13,16 @@ const UserInformationSchema = new mongoose.Schema(
       required: false,
       default: "",
     },
+    sid: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    background: {
+      type: String,
+      required: false,
+      default: "",
+    },
     birthDay: {
       type: String,
       required: false,

@@ -35,3 +35,7 @@ export const userValidator = [
     return true;
   }),
 ];
+
+export const editUserValidator = [
+  check("fullName").notEmpty().withMessage("Tên hiển thị không được để trống"),
+];

@@ -189,9 +189,14 @@ export const studentInCourse = async (req, res) => {
   const stuList = [];
   for (let element of studentList) {
     const user = await accountModel.findById(element);
+    const learningProccess = await LearningProcess.findOne({
+      accountId: user._id,
+      courseId: course._id,
+    });
     const stu = new Object({
       _id: user._id,
       userInformation: user.userInformation,
+      learningProccess,
     });
     stuList.push(stu);
   }
