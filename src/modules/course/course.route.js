@@ -89,6 +89,7 @@ router.post(
   controller.unJoinCourse
 );
 router.get("/people/:courseId", existCourse, controller.studentInCourse);
+router.get("/:courseId/new-register", existCourse, controller.getNewRegister);
 
 const courseRoutes = router;
 export default courseRoutes;

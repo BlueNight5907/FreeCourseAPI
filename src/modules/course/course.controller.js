@@ -203,6 +203,30 @@ export const studentInCourse = async (req, res) => {
   res.send(stuList);
 };
 
+export const getNewRegister = async (req, res) => {
+  const { course } = req;
+  const studentList = course.participants.reverse();
+  const stuList = [];
+  for (let element of studentList) {
+    const user = await accountModel.findById(element);
+    const learningProccess = await LearningProcess.findOne({
+      accountId: user._id,
+      courseId: course._id,
+    });
+    const stu = new Object({
+      _id: user._id,
+      userInformation: user.userInformation,
+      learningProccess,
+    });
+    stuList.push(stu);
+
+    if (stuList.length > 5) {
+      break;
+    }
+  }
+  res.send(stuList);
+};
+
 export const myCourses = async (req, res) => {
   const { user } = req;
   let allCourse = await LearningProcess.find({ accountId: user._id });
