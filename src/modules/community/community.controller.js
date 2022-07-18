@@ -4,19 +4,36 @@ import { getDataFromAllSettled, uniqBy } from "../../utils/array-utils";
 import { allComments } from "./community.method";
 
 export const getNewFeeds = async (req, res, next) => {
-  let { time, page_size } = req.query;
+  let { time, page_size, page, userId } = req.query;
+  const query = {};
+  console.log(page);
   try {
     time = new Date(time).toISOString();
   } catch (error) {
     time = new Date().toISOString();
   }
-  const feeds = await Post.find()
+  const feeds = await Post.find(query)
     .where("createdAt")
     .lte(time)
     .sort("-createdAt")
-    .limit(page_size || 10);
-
-  return res.json(feeds);
+    .skip(page * page_size - page_size)
+    .limit(page_size || 10)
+    .exec((error, doc) => {
+      if (error) {
+        return res.json(error);
+      }
+      Post.countDocuments(query).exec((error_count, count) => {
+        if (error_count) return res.json(error);
+        return res.json({
+          total: count,
+          size: doc.length,
+          feeds: doc,
+        });
+      });
+    });
+  // const size = Post.totalSize();
+  // const data = { feeds, size };
+  // return res.json(data);
 };
 
 export const getPost = async (req, res, next) => {
