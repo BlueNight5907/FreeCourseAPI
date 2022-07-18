@@ -143,7 +143,7 @@ export const getCourse = async (req, res) => {
 export const deleteCourse = async (req, res) => {
   const _id = req.params.courseId;
   await courseModel.findByIdAndRemove(_id);
-  await LearningProcess.deleteMany({ courseId: course._id });
+  await LearningProcess.deleteMany({ courseId: _id });
   res.send("Xóa khóa học thành công");
 };
 
