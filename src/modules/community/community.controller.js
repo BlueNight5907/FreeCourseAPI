@@ -3,10 +3,15 @@ import Post from "../../model/post";
 import { getDataFromAllSettled, uniqBy } from "../../utils/array-utils";
 import { allComments } from "./community.method";
 
+export const getAllFeeds = async (req, res, next) => {
+  const feeds = await Post.find({});
+  return res.json({ data: feeds, total: feeds.length });
+};
+
 export const getNewFeeds = async (req, res, next) => {
   let { time, page_size, page, userId } = req.query;
   const query = {};
-  console.log(page);
+  console.log("call:", page);
   try {
     time = new Date(time).toISOString();
   } catch (error) {
@@ -25,7 +30,7 @@ export const getNewFeeds = async (req, res, next) => {
       Post.countDocuments(query).exec((error_count, count) => {
         if (error_count) return res.json(error);
         return res.json({
-          total: count,
+          totalSize: count,
           size: doc.length,
           feeds: doc,
         });

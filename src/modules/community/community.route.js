@@ -11,6 +11,7 @@ import { postValidator } from "./validators/post.validator";
 
 const router = express.Router();
 
+router.get("/feeds/all", communityController.getAllFeeds);
 router.get("/feeds", communityController.getNewFeeds);
 
 router.get("/post/:postId", existPost, communityController.getPost);
