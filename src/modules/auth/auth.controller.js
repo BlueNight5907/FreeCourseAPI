@@ -8,6 +8,7 @@ import nodemailer from "nodemailer";
 export const postSignup = async (req, res) => {
   const fullName = req.body.fullName;
   const avatar = req.body.avatar;
+  const background = req.body.background;
   const birthDay = req.body.birthDay;
   const major = req.body.major;
   const address = req.body.address;
@@ -40,6 +41,7 @@ export const postSignup = async (req, res) => {
         user.userInformation = {};
         user.userInformation.fullName = fullName;
         user.userInformation.avatar = avatar;
+        user.userInformation.background = background;
         user.userInformation.birthDay = birthDay;
         user.userInformation.major = major;
         user.userInformation.address = address;

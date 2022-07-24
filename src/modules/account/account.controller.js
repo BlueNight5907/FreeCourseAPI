@@ -1,4 +1,4 @@
-import Account from "../../model/account.js";
+import Account, { AccountType } from "../../model/account.js";
 import accountModel from "../../model/account.js";
 import { paginate } from "../../utils/mongoose-utils.js";
 
@@ -42,7 +42,8 @@ export const getAllAccount = async (req, res) => {
     page,
     page_size,
     sort ? { [sort]: order } : { date: order },
-    {}
+    {},
+    ["type"]
   );
   res.send(accounts);
 };
@@ -77,8 +78,20 @@ export const editAccountAdmin = async (req, res) => {
   const address = req.body.address;
   const desc = req.body.desc;
   const others = req.body.others;
+  const password = req.body.password;
+  const sid = req.body.sid;
+  const type = req.body.type;
 
-  user.userInformation = {};
+  if (password) {
+    const newPassword = bcrypt.hashSync(password, 10);
+    user.password = newPassword;
+  }
+
+  if (type !== "admin") {
+    const accountType = (await AccountType.findOne({ name: type }))._id;
+    user.type = accountType;
+  }
+
   user.userInformation.fullName = fullName;
   user.userInformation.avatar = avatar;
   user.userInformation.birthDay = birthDay;
@@ -86,6 +99,7 @@ export const editAccountAdmin = async (req, res) => {
   user.userInformation.address = address;
   user.userInformation.desc = desc;
   user.userInformation.others = others;
+  user.userInformation.sid = sid;
 
   user.save((err) => {
     if (err) {
