@@ -4,7 +4,7 @@ import { getDataFromAllSettled, uniqBy } from "../../utils/array-utils";
 import { allComments } from "./community.method";
 
 export const getAllFeeds = async (req, res, next) => {
-  const feeds = await Post.find({});
+  const feeds = await Post.find({}).sort("-createdAt");
   return res.json({ data: feeds, total: feeds.length });
 };
 
