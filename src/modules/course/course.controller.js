@@ -14,6 +14,24 @@ export const getLevels = async (req, res, next) => {
   res.json(levels);
 };
 
+export const search = async (req, res, next) => {
+  const { q } = req.query;
+  const rgx = (pattern) => new RegExp(`.*${pattern}.*`);
+  const searchRgx = rgx(q);
+
+  const peers = await Course.find({
+    $or: [
+      { title: { $regex: searchRgx, $options: "i" } },
+      { content: { $regex: searchRgx, $options: "i" } },
+      { shortDesc: { $regex: searchRgx, $options: "i" } },
+    ],
+  })
+    .populate(["tags", "category", "level"])
+    .limit(20)
+    .catch(next);
+  res.json(peers);
+};
+
 export const createCourse = async (req, res, next) => {
   const title = req.body.title;
   const content = req.body.content;

@@ -16,6 +16,7 @@ import { courseValidator } from "./validator/course.validator.js";
 
 const router = express.Router();
 
+router.get("/search", controller.search);
 router.get("/levels", controller.getLevels);
 router.get("/me", controller.myCourses);
 router.get("/created-by-me", controller.myCreatedCourses);
