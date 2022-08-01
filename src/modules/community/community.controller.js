@@ -2,6 +2,7 @@ import Account from "../../model/account";
 import Post from "../../model/post";
 import { getDataFromAllSettled, uniqBy } from "../../utils/array-utils";
 import { allComments } from "./community.method";
+import mongoose from "mongoose";
 
 export const getAllFeeds = async (req, res, next) => {
   const feeds = await Post.find({}).sort("-createdAt");
@@ -10,13 +11,20 @@ export const getAllFeeds = async (req, res, next) => {
 
 export const getNewFeeds = async (req, res, next) => {
   let { time, page_size, page, userId } = req.query;
-  const query = {};
-  console.log("call:", page);
+  let query = {};
+  const ObjectId = mongoose.Types.ObjectId;
+
   try {
     time = new Date(time).toISOString();
   } catch (error) {
     time = new Date().toISOString();
   }
+
+  if (userId) {
+    console.log(userId, page);
+    query = { creator: new ObjectId(userId) };
+  }
+
   const feeds = await Post.find(query)
     .where("createdAt")
     .lte(time)
@@ -36,9 +44,6 @@ export const getNewFeeds = async (req, res, next) => {
         });
       });
     });
-  // const size = Post.totalSize();
-  // const data = { feeds, size };
-  // return res.json(data);
 };
 
 export const getPost = async (req, res, next) => {
