@@ -27,6 +27,7 @@ export default function routes(app) {
 
   // catch 404 and forward to error handler
   app.use((req, res, next) => {
+    console.log(req.url);
     const err = new APIError("API not found", httpStatus.NOT_FOUND);
     return next(err);
   });
