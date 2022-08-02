@@ -32,6 +32,16 @@ export const search = async (req, res, next) => {
   res.json(peers);
 };
 
+export const teacherCourses = async (req, res, next) => {
+  const { userId } = req.params;
+  let allCourses = await Course.find({ creator: userId }).populate([
+    "tags",
+    "level",
+    "category",
+  ]);
+  res.json(allCourses);
+};
+
 export const createCourse = async (req, res, next) => {
   const title = req.body.title;
   const content = req.body.content;

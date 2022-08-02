@@ -2,6 +2,7 @@ import express from "express";
 import { commentValidator } from "../../common/comment.validator.js";
 import { paginateValidator } from "../../common/common.validator.js";
 import handleValidationResult from "../../common/handleValidationResult.js";
+import { existAccount } from "../../middlewares/auth.middleware.js";
 import {
   canModifiedCourse,
   existComment,
@@ -17,6 +18,7 @@ import { courseValidator } from "./validator/course.validator.js";
 const router = express.Router();
 
 router.get("/search", controller.search);
+router.get("/search/:userId", existAccount, controller.teacherCourses);
 router.get("/levels", controller.getLevels);
 router.get("/me", controller.myCourses);
 router.get("/created-by-me", controller.myCreatedCourses);
