@@ -24,9 +24,9 @@ export const getNewFeeds = async (req, res, next) => {
     query = { creator: new ObjectId(userId) };
   }
   const feeds = await Post.find(query)
-    .where("createdAt")
+    .where("updatedAt")
     .lte(time)
-    .sort("-createdAt")
+    .sort("-updatedAt")
     // .skip(page * page_size - page_size)
     .limit(10)
     .exec((error, doc) => {
