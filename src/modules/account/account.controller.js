@@ -113,12 +113,14 @@ export const editAccountAdmin = async (req, res) => {
 export const getInfoUser = async (req, res) => {
   const _id = req.params.id;
   const user = await accountModel.findById(_id);
+  await user.populate("type");
   if (user) {
     res.send(
       new Object({
         id: user._id,
         email: user.email,
         userInformation: user.userInformation,
+        type: user.type,
       })
     );
   } else res.status(404).send({ message: "not found" });
