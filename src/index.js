@@ -13,14 +13,15 @@ import rateLimit from "express-rate-limit";
 const app = express();
 
 export const apiLimiter = rateLimit({
-  windowMs: 12 * 60 * 60 * 1000, // 12 hours duration
-  max: 5,
+  windowMs: 5 * 60 * 1000, // 12 hours duration
+  max: 500,
   message: "Too many connection",
 });
 
 // Use body-parser
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(apiLimiter);
 
 // Helmet full option
 // app.use(helmet.contentSecurityPolicy());

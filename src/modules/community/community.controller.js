@@ -21,16 +21,14 @@ export const getNewFeeds = async (req, res, next) => {
   }
 
   if (userId) {
-    console.log(userId, page);
     query = { creator: new ObjectId(userId) };
   }
-
   const feeds = await Post.find(query)
     .where("createdAt")
     .lte(time)
     .sort("-createdAt")
-    .skip(page * page_size - page_size)
-    .limit(page_size || 10)
+    // .skip(page * page_size - page_size)
+    .limit(10)
     .exec((error, doc) => {
       if (error) {
         return res.json(error);
