@@ -284,6 +284,7 @@ export const deleteComment = async (req, res, next) => {
     comment._id.equals(commentId)
   );
   course.comments.splice(commentIndex, 1);
+  await course.save();
   const comments = await allComment(course);
   return res.json({ comments });
 };
