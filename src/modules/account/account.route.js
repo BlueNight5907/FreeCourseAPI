@@ -20,6 +20,7 @@ router.put(
 router.get("/all", isAdmin, accountController.getAllAccount);
 router.get("/me", isAuth, accountController.getMyAccount);
 router.delete("/:id", isAdmin, accountController.deleteAccount);
+router.get("/teacher", accountController.getAllTeacher);
 router.put(
   "/:id",
   isAdmin,

@@ -133,3 +133,17 @@ export const getMyAccount = async (req, res) => {
   delete user.password;
   return res.json(user);
 };
+
+export const getAllTeacher = async (req, res) => {
+  const { page = 0, page_size = 10, sort, order = "desc" } = req.query;
+  const teacherType = (await AccountType.findOne({ name: "teacher" }))._id;
+  const accounts = await paginate(
+    Account,
+    page,
+    page_size,
+    sort ? { [sort]: order } : { date: order },
+    { type: teacherType },
+    ["type"]
+  );
+  res.send(accounts);
+};
