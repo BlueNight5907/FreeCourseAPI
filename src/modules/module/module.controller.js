@@ -6,6 +6,7 @@ import LearningProcess from "../../model/learning-process";
 import Account from "../../model/account";
 import { getDataFromAllSettled } from "../../utils/array-utils";
 import Test from "../../model/test";
+import Course from "../../model/course";
 
 export const addNewModule = async (req, res, next) => {
   const { course, body } = req;
@@ -259,13 +260,24 @@ export const deleteComment = async (req, res) => {
 };
 
 export const completeLesson = async (req, res) => {
-  const { step, learningProcess } = req;
+  const { module, step, learningProcess } = req;
   learningProcess.visited = new Date().getTime();
   const isCompleted =
     learningProcess.learned.filter((i) => i.stepId.equals(step._id)).length > 0;
   if (!isCompleted) {
     learningProcess.learned.push({ stepId: step._id, type: step.type });
     await learningProcess.save();
+    const modules = (await Course.findById(module.courseId).populate("modules"))
+      .modules;
+    const allSteps = modules.reduce(
+      (total, curr) => total + curr.steps.length,
+      0
+    );
+    if (allSteps === learningProcess.learned.length) {
+      return res.json({ isCompleted: true });
+    }
+    return res.json(learningProcess);
   }
-  res.json(learningProcess);
+
+  res.json({});
 };
