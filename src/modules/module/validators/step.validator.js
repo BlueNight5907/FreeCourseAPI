@@ -14,7 +14,7 @@ export const lessonValidate = [
     .notEmpty()
     .withMessage("Nội dung khóa học không được để trống"),
   check("url").custom((value, { req }) => {
-    if (req.type === "default") {
+    if (req.body.type === "default") {
       return true;
     }
 
