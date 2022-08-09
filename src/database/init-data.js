@@ -25,6 +25,7 @@ const createAdminAccount = async () => {
   const admin = new Account({
     email: "admin@tdt-learning.com",
     password: hashPassword,
+    refreshToken: randomBytes(100).toString("hex"),
     type: adminType._id,
     active: true,
     lockState: false,

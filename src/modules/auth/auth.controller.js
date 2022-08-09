@@ -92,6 +92,7 @@ export const postSingin = async (req, res) => {
       .status(401)
       .send("Đăng nhập không thành công, vui lòng thử lại.");
   }
+
   const refreshToken = user.refreshToken;
 
   delete user.password;
