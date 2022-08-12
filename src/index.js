@@ -13,8 +13,8 @@ import rateLimit from "express-rate-limit";
 const app = express();
 
 export const apiLimiter = rateLimit({
-  windowMs: 5 * 60 * 1000, // 12 hours duration
-  max: 500,
+  windowMs: 1 * 60 * 1000, // 12 hours duration
+  max: 600,
   message: "Too many connection",
 });
 

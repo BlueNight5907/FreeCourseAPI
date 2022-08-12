@@ -11,6 +11,7 @@ export const postSignup = async (req, res) => {
   const background = req.body.background;
   const birthDay = req.body.birthDay;
   const major = req.body.major;
+  const sid = req.body.sid;
   const address = req.body.address;
   const desc = req.body.desc;
   const type = req.body.type;
@@ -46,6 +47,7 @@ export const postSignup = async (req, res) => {
         user.userInformation.major = major;
         user.userInformation.address = address;
         user.userInformation.desc = desc;
+        user.userInformation.sid = sid;
         user.save(function (err) {
           if (err) {
             res.send(err);
